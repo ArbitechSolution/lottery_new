@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+.btn{
+    background-color: #319795;
+    font-family: 'Ropa Sans';
+    font-size: 18px;
+    font-weight: 600;
+}
+.btn:hover{
+    background-color: #f1f1f1 !important;
+    font-family: 'Ropa Sans';
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.lotterysize{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+}

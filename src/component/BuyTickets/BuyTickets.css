@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+
+.buyTicketBox {
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* border-radius: 5px; */
+}
+
+.buyTicketBoxMini {
+    background-color: #E2E2E2;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* border-radius: 5px; */
+}
+
+.buyTicketBox-button {
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Ropa Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+}
+.buyTicketBox-button-trensparent{
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Ropa Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+}
+.buyTicketSpan {
+    font-family: 'Ropa Sans';
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 26px;
+    text-align: left;
+    /* padding-top: 30px; */
+}
+
+.buyTicketSpanone {
+    font-family: 'Ropa Sans';
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 26px;
+    text-align: left;
+}
+
+.select-dropdown,
+.select-dropdown * {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.select-dropdown {
+    position: relative;
+    /* background-color: #E6E6E6; */
+    border-radius: 4px;
+}
+
+.select-dropdown select {
+    font-size: 1.3rem;
+    font-weight: 500 !important;
+    font-weight: normal;
+    max-width: 100%;
+    padding: 8px 24px 8px 10px;
+    border: none;
+}
+
+.select-dropdown select:active,
+.select-dropdown select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.miniboxoption {
+    background-color: #FFFFFF;
+    border: 2px solid #8E8E8E;
+    border-radius: 5px;
+    width: 66px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Ropa Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+ul {
+    list-style: none;
+    text-align: left;
+    list-style-type: none;
+    float: left;
+}
+
+li {
+    padding-left: 2em;
+    text-indent: -2em;
+}

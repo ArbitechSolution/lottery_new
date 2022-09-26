@@ -6,8 +6,8 @@
   height: 40vmin;
   pointer-events: none;
 }
-body{
-  background-color: #CBD5E0 !important;
+body {
+  background-color: #cbd5e0 !important;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -37,4 +37,50 @@ body{
   to {
     transform: rotate(360deg);
   }
+}
+.css-bj5vwl {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important ;
+  flex-direction: row !important;
+}
+.css-k008qs {
+  display: flex;
+  justify-content: end !important;
+  flex-direction: column !important;
+}
+.css-6sdaxy {
+  width: 45px !important;
+  padding: 10px !important;
+  border: none !important;
+  border-radius: 12px !important;
+}
+.css-6sdaxy:hover {
+  background-color: #964444 !important;
+  transition-delay: 0.3s initial !important;
+  fill: #fff !important;
+}
+.css-1oxhx2p {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important ;
+}
+.isCentered {
+  display: flex;
+  justify-content: center !important;
+}
+.container-modal {
+  max-width: 460px !important;
+  min-width: 320px !important;
+}
+
+.cost {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.close {
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }

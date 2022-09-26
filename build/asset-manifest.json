@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.eceab96e.css",
+    "main.js": "/static/js/main.b00e54e2.js",
+    "static/media/Babylonia_Logo.png": "/static/media/Babylonia_Logo.3eacc453e7cc6b1e773a.png",
+    "index.html": "/index.html",
+    "main.eceab96e.css.map": "/static/css/main.eceab96e.css.map",
+    "main.b00e54e2.js.map": "/static/js/main.b00e54e2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eceab96e.css",
+    "static/js/main.b00e54e2.js"
+  ]
+}

@@ -24,6 +24,8 @@ import {
   useColorModeValue,
   Spacer,
 } from "@chakra-ui/react";
+import { TokenAbI, TokenAddress } from "../Utils/token";
+import { BabyAbI, BabyAddress } from "../Utils/baby";
 function BuyPointOne() {
   const [open, setOpen] = useState(false);
   const textTitleColor = useColorModeValue("black", "gray.100");
@@ -59,6 +61,71 @@ function BuyPointOne() {
       setInputValue(e.target.value);
     }
   };
+  const getBabyBalance = async () => {
+    try {
+      if (account == "No Wallet") {
+        // toast.info("Not Connected");
+        console.log("no wallet");
+      } else if (account == "Wrong Network") {
+        // toast.info("Not Connected");
+        console.log("wrong");
+      } else if (account == "Connect Wallet") {
+        // toast.info("Not Connected");
+        console.log("not conneted ");
+      } else {
+        const web3 = window.web3;
+        const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
+        let balance = await tokenContract.methods.balanceOf(account).call();
+        console.log(balance);
+        balance = web3.utils.fromWei(balance.toString());
+        console.log(balance);
+        setBabyBalance(balance);
+      }
+    } catch (error) {
+      console.log("error while getting baby balance");
+    }
+  };
+  const getCost = async () => {
+    try {
+      if (account == "No Wallet") {
+        // toast.info("Not Connected");
+        console.log("no wallet");
+      } else if (account == "Wrong Network") {
+        // toast.info("Not Connected");
+        console.log("wrong");
+      } else if (account == "Connect Wallet") {
+        // toast.info("Not Connected");
+        console.log("not conneted ");
+      } else {
+        const web3 = window.web3;
+        const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+        const id = await lotteryContract.methods.viewCurrentLotteryId().call();
+        console.log(id);
+        const values = await lotteryContract.methods.structValues(id).call();
+        console.log(values, "values of 0");
+        console.log(values.babyPrice, "values of babyPrice");
+        console.log(values.discount, "values of discount");
+
+        let balance = await lotteryContract.methods
+          .calculateTotalPriceForBulkTickets(
+            values.discount,
+            values.babyPrice,
+            valueInput
+          )
+          .call();
+        console.log(balance);
+        balance = web3.utils.fromWei(balance.toString());
+        console.log(balance);
+        setBabyBalance(balance);
+      }
+    } catch (error) {
+      console.log("error while getting baby balance");
+    }
+  };
+  useEffect(() => {
+    getBabyBalance();
+    getCost();
+  }, [account]);
   useEffect(() => {
     document.getElementById("input").focus();
   });
@@ -102,7 +169,7 @@ function BuyPointOne() {
                   </span>
                   <br />
                   <span className="InsufficientTextOne">
-                    BABY Balance: 0.000
+                    BABY Balance: {babyBalance}
                   </span>
                 </div>
                 <div className="row d-flex justify-content-around mt-3">

@@ -215,90 +215,93 @@ function BuyPointOne() {
                 borderRadius={"10px"}
                 bg={colorMode === "dark" ? "#5C5C5C" : bgBoxColor}
               >
-                {lotteryCard ? (
-                  <div className="container-modal">
-                    <div className="close">
-                      <ModalCloseButton />
-                    </div>
-                    <div className="row d-flex justify-content-center mt-4 mb-4">
-                      <h4 className="d-flex justify-content-center">
-                        Edit Number
-                      </h4>
-                      <div className="col-lg-10 buyTicketBox mb-5">
-                        <div className="buyTicketBoxMini">
-                          <div className="row d-flex justify-content-center">
-                            <div className="col-10 ">
-                              <div className="row d-flex justify-content-between">
-                                <div className="col-12 mt-2 mb-2 cost">
-                                  <span>Total Cost:</span>
-                                  <span>1.18 BABY</span>
+                {
+                  lotteryCard && (
+                    <div className="container-modal">
+                      <div className="close">
+                        <ModalCloseButton />
+                      </div>
+                      <div className="row d-flex justify-content-center ">
+                        <h4 className="d-flex justify-content-center">
+                          Edit Number
+                        </h4>
+                        <div className="col-lg-10 buyTicketBox mb-3">
+                          <div className="buyTicketBoxMini">
+                            <div className="row d-flex justify-content-center">
+                              <div className="col-10 ">
+                                <div className="row d-flex justify-content-between">
+                                  <div className="col-12 mt-2 mb-2 cost">
+                                    <span>Total Cost:</span>
+                                    <span>1.18 BABY</span>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="row d-flex justify-content-center mt-4 mb-2">
-                              <div className="col-lg-12 col-11 ">
-                                <span>
-                                  Buy Instantly, chooses random numbers, with no
-                                  duplicates among your tickets. Prices are set
-                                  before each round starts, equal to $5 at that
-                                  time. Purchases are final.
-                                </span>
+                              <div className="row d-flex justify-content-center mt-2 mb-2">
+                                <div className="col-lg-12 col-11 ">
+                                  <span>
+                                    Buy Instantly, chooses random numbers, with
+                                    no duplicates among your tickets. Prices are
+                                    set before each round starts, equal to $5 at
+                                    that time. Purchases are final.
+                                  </span>
+                                </div>
                               </div>
-                            </div>
-                            <div className="row d-flex justify-content-center mt-4 mb-5">
-                              <div className="col-11 buyoneBox">
-                                <div className="row">
-                                  <div className="col-lg-10">
-                                    <input
-                                      type="number"
-                                      className="form-control"
-                                      placeholder="0 0 0 0 0 0"
-                                      id="input"
-                                    />
+                              <div className="row d-flex justify-content-center mt-3 mb-3">
+                                <div className="col-11 buyoneBox">
+                                  <div className="row">
+                                    <div className="col-lg-10">
+                                      <input
+                                        type="number"
+                                        className="form-control"
+                                        placeholder="0 0 0 0 0 0"
+                                        id="input"
+                                      />
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="row d-flex justify-content-center mt-3 mb-5">
-                        <div className="col-md-7">
-                          <div className="d-grid gap-2">
-                            <button
-                              className="buyTicketBox-button"
-                              size="lg"
-                              onClick={() => handleConfirm()}
-                            >
-                              Confirm & Buy
-                            </button>
+                        <div className="row d-flex justify-content-center mt-2 mb-2">
+                          <div className="col-md-7">
+                            <div className="d-grid gap-2">
+                              <button
+                                className="buyTicketBox-button"
+                                size="lg"
+                                onClick={() => handleConfirm()}
+                              >
+                                Confirm & Buy
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  <Center my="10">
-                    <Button
-                      // focusBorderColor="none"
-                      id="swap_button"
-                      border="1px"
-                      w="55%"
-                      h="40px"
-                      borderRadius="5"
-                      color={colorMode === "dark" ? "white" : "black"}
-                      backgroundColor={colorMode === "dark" ? "black" : "white"}
-                      fontFamily="Ropa Sans"
-                      fontSize={"19px"}
-                      fontWeight="150"
-                      onClick={() => {
-                        setLotteryCard(true);
-                      }}
-                    >
-                      Buy Ticket
-                    </Button>
-                  </Center>
-                )}
+                  )
+                  // ) : (
+                  //   <Center my="10">
+                  //     <Button
+                  //       // focusBorderColor="none"
+                  //       id="swap_button"
+                  //       border="1px"
+                  //       w="55%"
+                  //       h="40px"
+                  //       borderRadius="5"
+                  //       color={colorMode === "dark" ? "white" : "black"}
+                  //       backgroundColor={colorMode === "dark" ? "black" : "white"}
+                  //       fontFamily="Ropa Sans"
+                  //       fontSize={"19px"}
+                  //       fontWeight="150"
+                  //       onClick={() => {
+                  //         setLotteryCard(true);
+                  //       }}
+                  //     >
+                  //       Buy Ticket
+                  //     </Button>
+                  //   </Center>
+                  // )
+                }
               </Box>
             </Box>
           </Flex>

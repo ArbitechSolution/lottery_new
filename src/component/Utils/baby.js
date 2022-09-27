@@ -1,4 +1,4 @@
-export const BabyAddress = "0x15024Ed1a626e3690195A635Fd6385a987DD9867";
+export const BabyAddress = "0xAB805ed032406a1c3Bef754C673575780044F724";
 export const BabyAbI = [
   {
     inputs: [
@@ -652,30 +652,6 @@ export const BabyAbI = [
         internalType: "contract IRandomNumberGenerator",
         name: "",
         type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "currentLotteryId_",
-        type: "uint256",
-      },
-    ],
-    name: "structValues",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "babyPrice",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "discount",
-        type: "uint256",
       },
     ],
     stateMutability: "view",

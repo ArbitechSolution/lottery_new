@@ -37,10 +37,13 @@ function BuyPointOne() {
   const bgBoxColor = useColorModeValue("#E2E2E2", "FFFFFF");
   const buttonColor = useColorModeValue("#F58634", "#0E1555");
   const buttonTxtColor = useColorModeValue("gray.900", "gray.200");
-  const [valueInput, setInputValue] = useState(0);
+  const [valueInput, setInputValue] = useState("");
+  const [actualCost, setActualCost] = useState(0);
   const [costValue, setCostValue] = useState(0);
   const [bulkDiscount, setBulkDiscount] = useState(0);
   const [babyBalance, setBabyBalance] = useState(0);
+  const [percent, setPercent] = useState(0);
+  const [approved, setApproved] = useState(false);
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
   let account = useSelector((state) => state.connect?.connection);
@@ -59,6 +62,9 @@ function BuyPointOne() {
     console.log(e.target.value);
     if (e.target.value >= 0 && e.target.value <= 100) {
       setInputValue(e.target.value);
+      getCost();
+    } else {
+      getCost();
     }
   };
   const getBabyBalance = async () => {
@@ -76,9 +82,8 @@ function BuyPointOne() {
         const web3 = window.web3;
         const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
         let balance = await tokenContract.methods.balanceOf(account).call();
-        console.log(balance);
-        balance = web3.utils.fromWei(balance.toString());
-        console.log(balance);
+        balance = web3.utils.fromWei(balance);
+        console.log("token balance", balance);
         setBabyBalance(balance);
       }
     } catch (error) {
@@ -101,42 +106,159 @@ function BuyPointOne() {
         const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
         const id = await lotteryContract.methods.viewCurrentLotteryId().call();
         console.log(id);
-        const values = await lotteryContract.methods.structValues(id).call();
-        console.log(values, "values of 0");
-        console.log(values.babyPrice, "values of babyPrice");
-        console.log(values.discount, "values of discount");
+        const values = await lotteryContract.methods.viewLottery(id).call();
+        console.log(values, "values of lottery construct");
+        console.log(values.priceTicketInBABY, "values of babyPrice");
+        console.log(values.discountDivisor, "values of discount");
+        console.log(valueInput, "values of valueInput");
 
-        let balance = await lotteryContract.methods
-          .calculateTotalPriceForBulkTickets(
-            values.discount,
-            values.babyPrice,
-            valueInput
-          )
-          .call();
-        console.log(balance);
-        balance = web3.utils.fromWei(balance.toString());
-        console.log(balance);
-        setBabyBalance(balance);
+        if (valueInput == 0) {
+          setBulkDiscount(0);
+          setPercent(0);
+          setCostValue(0);
+          setActualCost(0);
+        } else {
+          let costForOne = await lotteryContract.methods
+            .calculateTotalPriceForBulkTickets(
+              values.discountDivisor,
+              values.priceTicketInBABY,
+              1
+            )
+            .call();
+          costForOne = web3.utils.fromWei(costForOne);
+          let val = costForOne * valueInput;
+          setCostValue(val);
+
+          let acutalCostForBuy = await lotteryContract.methods
+            .calculateTotalPriceForBulkTickets(
+              values.discountDivisor,
+              values.priceTicketInBABY,
+              valueInput
+            )
+            .call();
+          acutalCostForBuy = web3.utils.fromWei(acutalCostForBuy);
+          acutalCostForBuy = parseFloat(acutalCostForBuy).toFixed(4);
+          console.log(acutalCostForBuy, "acutalCostForBuy");
+          setActualCost(acutalCostForBuy);
+
+          let discount = val - acutalCostForBuy;
+          discount = parseFloat(discount).toFixed(4);
+          setBulkDiscount(discount);
+
+          let percentage = discount / val;
+          percentage = percentage * 100;
+          percentage = parseFloat(percentage).toFixed(2);
+          setPercent(percentage);
+        }
       }
     } catch (error) {
       console.log("error while getting baby balance");
     }
+  };
+  const handleEnable = async () => {
+    console.log("into Enable");
+    try {
+      if (valueInput > 0) {
+        console.log(
+          "into Enable valueInput",
+          babyBalance,
+          parseFloat(actualCost),
+          parseFloat(babyBalance)
+        );
+
+        if (parseFloat(actualCost) <= parseFloat(babyBalance)) {
+          console.log(
+            "actualCost <= babyBalance after check",
+            actualCost,
+            babyBalance
+          );
+          const web3 = window.web3;
+
+          const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
+          console.log(
+            "token tokenContract",
+            tokenContract.methods,
+            BabyAddress,
+            account
+          );
+          let amount = web3.utils.toWei(actualCost);
+          await tokenContract.methods
+            .approve(BabyAddress, amount)
+            .send({
+              from: account,
+            })
+            .on("receipt", (receipt) => {
+              console.log("mintValue", receipt);
+            });
+          setApproved(true);
+          console.log("token approveed");
+        } else {
+          console.log("balance is low");
+        }
+      } else {
+        console.log("please input Tickets count");
+      }
+    } catch (error) {
+      console.log("error while getting baby balance", error);
+    }
+  };
+  const getBuyTicket = async () => {
+    try {
+      if (account == "No Wallet") {
+        // toast.info("Not Connected");
+        console.log("no wallet");
+      } else if (account == "Wrong Network") {
+        // toast.info("Not Connected");
+        console.log("wrong");
+      } else if (account == "Connect Wallet") {
+        // toast.info("Not Connected");
+        console.log("not conneted ");
+      } else {
+        const web3 = window.web3;
+        const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+        const id = await lotteryContract.methods.viewCurrentLotteryId().call();
+        console.log(id);
+        let array = [];
+        for (let i = 1; i <= valueInput; i++) {
+          let num = random();
+          array = [...array, num];
+        }
+        console.log("array", array);
+        const result = await lotteryContract.methods
+          .buyTickets(id, array)
+          .send({ from: account });
+      }
+    } catch (error) {
+      console.log("error while getting baby balance");
+    }
+  };
+  const random = () => {
+    let randomNumber = 100000 + Math.floor(Math.random() * 900000);
+    randomNumber = 1000000 + randomNumber;
+    console.log("randomNumber", randomNumber, randomNumber.toString().length);
+    return randomNumber;
   };
   useEffect(() => {
     getBabyBalance();
     getCost();
   }, [account]);
   useEffect(() => {
+    setTimeout(() => {
+      getCost();
+    }, 1000);
+  }, [valueInput]);
+
+  useEffect(() => {
     document.getElementById("input").focus();
   });
   return (
     <div className="container">
       <div className="row d-flex justify-content-center mt-4 mb-4">
-        <div className="col-lg-7 buyTicketBox">
+        <div className="col-lg-5 buyTicketBox">
           <div className="buyTicketBoxMini">
             <p className="buyTicketSpan mt-4 text-center">Buy Tickets</p>
             <div className="row d-flex justify-content-center">
-              <div className="col-11 buyTicketBox mb-3">
+              <div className="col-9 buyTicketBox mb-3">
                 <div className="row d-flex justify-content-center">
                   <div className="col-11 d-flex justify-content-between ">
                     <span className="buyPointOneSpan">Buy:</span>
@@ -150,20 +272,21 @@ function BuyPointOne() {
                           className="form-control"
                           placeholder="0"
                           id="input"
-                          max={100}
-                          min={1}
                           value={valueInput}
                           onChange={(e) => handleChangeInput(e)}
                         />
                       </div>
                       <div className="col-12 d-flex justify-content-end mb-2">
-                        <span className="buyPointOneSpan">~0.00 BABY</span>
+                        <span className="buyPointOneSpan">
+                          ~{costValue} &nbsp;BABY
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="col-12 text-end ">
+                  {babyBalance <= 0}
                   <span className="InsufficientText">
                     Insufficient BABY balance
                   </span>
@@ -183,21 +306,26 @@ function BuyPointOne() {
                 <div className="row d-flex justify-content-center mt-3">
                   <div className="col-11 d-flex justify-content-between">
                     <span className="buyPointOneSpan">Cost (BABY)</span>
-                    <span className="buyPointOneSpan">0 BABY</span>
+                    <span className="buyPointOneSpan">{costValue} BABY</span>
                   </div>
                 </div>
                 <div className="row d-flex justify-content-center mt-3">
                   <div className="col-11 d-flex justify-content-between">
                     <span className="buyPointOneSpan">
-                      <span className="fw-bold">0%</span>-Bulk discount
+                      <span className="fw-bold">{percent}&nbsp;%</span>-Bulk
+                      discount
                     </span>
-                    <span className="buyPointOneSpan">~0 BABY</span>
+                    <span className="buyPointOneSpan">
+                      ~{bulkDiscount} &nbsp; BABY
+                    </span>
                   </div>
                 </div>
                 <div className="row d-flex justify-content-center mt-3  mb-4">
                   <div className="col-11 d-flex justify-content-between">
                     <span className="buyPointOneSpan">You pay</span>
-                    <span className="buyPointOneSpan fw-bold">~0 BABY</span>
+                    <span className="buyPointOneSpan fw-bold">
+                      ~{actualCost} &nbsp; BABY
+                    </span>
                   </div>
                 </div>
               </div>
@@ -206,21 +334,31 @@ function BuyPointOne() {
             <div className="row d-flex justify-content-center mt-3 mb-3">
               <div className="col-md-7">
                 <div className="d-grid gap-2">
-                  <button
-                    className="buyTicketBox-button"
-                    size="lg"
-                    onClick={() => handleConnect()}
-                  >
-                    {account === "No Wallet"
-                      ? "Connect Wallet"
-                      : account === "Connect Wallet"
-                      ? "Connect Wallet"
-                      : account === "Wrong Network"
-                      ? account
-                      : account.substring(0, 4) +
-                        "..." +
-                        account.substring(account.length - 4)}
-                  </button>
+                  {lotteryCard == true ? (
+                    <button
+                      className="buyTicketBox-button"
+                      size="lg"
+                      onClick={() => handleEnable()}
+                    >
+                      Enable
+                    </button>
+                  ) : (
+                    <button
+                      className="buyTicketBox-button"
+                      size="lg"
+                      onClick={() => handleConnect()}
+                    >
+                      {account === "No Wallet"
+                        ? "Connect Wallet"
+                        : account === "Connect Wallet"
+                        ? "Connect Wallet"
+                        : account === "Wrong Network"
+                        ? account
+                        : account.substring(0, 4) +
+                          "..." +
+                          account.substring(account.length - 4)}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -234,7 +372,10 @@ function BuyPointOne() {
                     // onClick={() => {
                     //   handleBuyInstantly();
                     // }}
-                    onClick={onOpen}
+                    // onClick={onOpen}
+                    onClick={() => {
+                      getBuyTicket();
+                    }}
                   >
                     Buy Instantly
                   </button>
@@ -245,13 +386,24 @@ function BuyPointOne() {
             <div className="row d-flex justify-content-center mb-5">
               <div className="col-md-7">
                 <div className="d-grid gap-2">
-                  <button
-                    className="buyTicketBox-button-trensparent"
-                    size="lg"
-                    onClick={onOpen}
-                  >
-                    View/Edit Number
-                  </button>
+                  {approved ? (
+                    <button
+                      className="buyTicketBox-button-trensparent"
+                      size="lg"
+                      onClick={onOpen}
+                    >
+                      View/Edit Number
+                    </button>
+                  ) : (
+                    <button
+                      className="buyTicketBox-button-trensparent"
+                      size="lg"
+                      disabled
+                      // onClick={onOpen}
+                    >
+                      View/Edit Number
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

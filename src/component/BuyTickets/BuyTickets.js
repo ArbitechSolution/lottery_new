@@ -64,7 +64,7 @@ function BuyTickets() {
   return (
     <div className="container">
       <div className="row d-flex justify-content-center mt-4 mb-4">
-        <div className="col-lg-6 buyTicketBox">
+        <div className="col-lg-5 buyTicketBox">
           <div className="buyTicketBoxMini">
             <p className="buyTicketSpan mt-4" style={{ paddingLeft: "45px" }}>
               Buy Tickets

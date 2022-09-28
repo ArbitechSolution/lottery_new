@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./BuyTickets.css";
 import info from "../../Assets/info-01_128px.png";
 import { BiMinus, BiPlus } from "react-icons/bi";
@@ -31,6 +31,8 @@ import {
   useColorModeValue,
   Spacer,
 } from "@chakra-ui/react";
+import { TokenAbI, TokenAddress } from "../Utils/token";
+
 function BuyTickets() {
   const [open, setOpen] = useState(false);
   const textTitleColor = useColorModeValue("black", "gray.100");
@@ -46,6 +48,8 @@ function BuyTickets() {
   //   const [account, setAccount] = useState("Connect Wallet");
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [babyBalance, setBabyBalance] = useState(0);
+
   let account = useSelector((state) => state.connect?.connection);
   //   const {
   //     isOpen: isModalOpen,
@@ -56,11 +60,34 @@ function BuyTickets() {
     // let acc = await loadWeb3();
     dispatch(connectionAction());
   };
+  const getBabyBalance = async () => {
+    try {
+      if (account == "No Wallet") {
+        console.log("no wallet");
+      } else if (account == "Wrong Network") {
+        console.log("wrong");
+      } else if (account == "Connect Wallet") {
+        console.log("not conneted ");
+      } else {
+        const web3 = window.web3;
+        const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
+        let balance = await tokenContract.methods.balanceOf(account).call();
+        balance = web3.utils.fromWei(balance);
+        balance = parseFloat(balance).toFixed(4);
+        console.log("token balance", balance);
+        setBabyBalance(balance);
+      }
+    } catch (error) {
+      console.log("error while getting baby balance");
+    }
+  };
   const handleBuyInstantly = () => {
     console.log("into");
     setLotteryCard(true);
   };
-
+  useEffect(() => {
+    getBabyBalance();
+  }, [account]);
   return (
     <div className="container">
       <div className="row d-flex justify-content-center mt-4 mb-4">
@@ -73,17 +100,18 @@ function BuyTickets() {
               <div className="col-10 buyTicketBox">
                 <div className="row d-flex justify-content-between">
                   <div className="col-lg-4 mt-2 mb-2">
-                    <div class="select-dropdown">
+                    <span>&#8383; BNB</span>
+                    {/* <div class="select-dropdown">
                       <select>
                         <option value="Option 1">&#8383; BNB</option>
                         <option value="Option 2">2nd Option</option>
                         <option value="Option 3">Option Number 3</option>
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="col-lg-7 d-flex justify-content-center align-items-center">
                     <span className="buyTicketSpanone">
-                      Balance: 0123456789
+                      Balance: &nbsp;{babyBalance}
                     </span>
                   </div>
                 </div>
@@ -93,7 +121,7 @@ function BuyTickets() {
                   <div className="row mt-3 mb-3">
                     <div className="col-8 d-flex align-items-center">
                       <BiMinus size={30} />
-                      <div className="miniboxoption">999</div>
+                      <div className="miniboxoption">100</div>
                       <BiPlus size={30} />
                     </div>
                     <div className="col-4 d-flex justify-content-center align-items-center">

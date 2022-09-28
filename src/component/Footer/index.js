@@ -7,31 +7,45 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
+import TwitterIcon from "../../Assets/Twitter-1.png";
+import TelegramIcon from "../../Assets/Telegram-1.png";
+import EmailIcon from "../../Assets/Email-1.png";
+import InstagramIcon from "../../Assets/icon_instagram_128x128.png";
+import DiscordIcon from "../../Assets/icon_discord_64px.png";
 import SocialNetworkIcons from "../SocialNetworkIcons";
 function Footer() {
   const bgColor = useColorModeValue("gray.700", "gray.900");
   return (
-    <Flex
-      as="footer"
-      position="fixed"
-      left="0"
-      bottom="0"
-      mx="0"
-      px="0"
-      w="100%"
-      h="80px"
-      zIndex={200}
-    >
-      <Container as="main" mt="0" mx="0" px="0" minWidth="full">
-        <Stack bg={bgColor} h="full">
-          <VStack w="full" align="left" p="6px">
-            <Center>
-              <SocialNetworkIcons></SocialNetworkIcons>
-            </Center>
-          </VStack>
-        </Stack>
-      </Container>
-    </Flex>
+    <div className="container mt-5">
+      <div className="row d-flex justify-content-center mt-4 mb-4">
+        <div className="col-lg-3 buyTicketBox">
+          <div className="buyTicketBoxMini">
+            <div className="row d-flex justify-content-center">
+              <div className="col-12 social-div ">
+                <a href="https://discord.gg/XJzdsJZayH" target="_blank">
+                  <img className="social" src={DiscordIcon} alt="Discord" />
+                </a>
+                <a href="https://twitter.com/AppBabylonia" target="_blank">
+                  <img className="social" src={TwitterIcon} alt="Twitter" />
+                </a>
+                <a href="https://t.me/babyloniageneralchat" target="_blank">
+                  <img className="social" src={TelegramIcon} alt="Telegram" />
+                </a>
+                <a
+                  href="https://www.instagram.com/appbabylonia/"
+                  target="_blank"
+                >
+                  <img className="social" src={InstagramIcon} alt="Instagram" />
+                </a>
+                <a href="" target="_blank">
+                  <img className="social" src={EmailIcon} alt="Gmail" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 export default Footer;

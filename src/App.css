@@ -90,3 +90,37 @@ body {
 .isCentered {
   overflow: auto !important;
 }
+.social-div {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+.social {
+  width: 40px;
+}
+.css-19z1ozs-MuiPaper-root-MuiAppBar-root,
+.css-1r9jet7 {
+  display: none !important;
+}
+.MuiDrawer-paper {
+  top: 20% !important;
+  background-color: transparent !important;
+}
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+  border-right: none !important;
+}
+.css-9mgopn-MuiDivider-root {
+  border-bottom: none !important;
+}
+.sideMenuIcon {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 600px) {
+  .css-2dum1v-MuiDrawer-docked .MuiDrawer-paper {
+    width: calc(120px + 1px) !important;
+  }
+}

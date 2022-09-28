@@ -265,11 +265,20 @@ function BuyPointOne() {
     return randomNumber;
   };
 
-  const handleLotteryNumberEdit = (e) => {
+  const handleLotteryNumberEdit = (e, item) => {
     console.log("editable handleLotteryNumberEdit", eidtLotteryNumber);
     // console.log("value of number ", e.target.value);
 
     if (e.target.value <= 999999) {
+      for (let i = 0; i <= eidtLotteryNumber.length; i++) {
+        console.log("eidtLotteryNumber[i]", eidtLotteryNumber[i], item);
+        console.log("eidtLotteryNumber[i]", e.target.value);
+        if (eidtLotteryNumber[i] == item) {
+          eidtLotteryNumber[i] = e.target.value;
+          console.log("in looop [i]", eidtLotteryNumber[i]);
+          console.log("in looop [i]", e.target.value);
+        }
+      }
       setEidtLotteryNumber(e.target.value);
     } else {
       toast.info("You can add only upto 6 digit number !");
@@ -508,20 +517,19 @@ function BuyPointOne() {
                             <div className="row d-flex justify-content-center mt-3 mb-3">
                               {eidtLotteryNumber &&
                                 eidtLotteryNumber.map((item, index) => {
-                                  console.log("item", item);
-
                                   return (
                                     <div className="col-11 buyoneBox mt-1">
                                       <div className="row">
                                         <div className="col-lg-10 ">
                                           <input
+                                            disabled
                                             type="number"
                                             className="form-control"
                                             placeholder="0   0   0   0   0   0"
                                             id="input"
                                             value={item}
                                             onChange={(e) => {
-                                              handleLotteryNumberEdit(e);
+                                              handleLotteryNumberEdit(e, item);
                                             }}
                                           />
                                         </div>

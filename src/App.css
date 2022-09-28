@@ -99,14 +99,16 @@ body {
   width: 40px;
 }
 .css-19z1ozs-MuiPaper-root-MuiAppBar-root,
-.css-1r9jet7 {
+.css-1r9jet7,
+.css-168noda {
   display: none !important;
 }
 .MuiDrawer-paper {
   top: 20% !important;
   background-color: transparent !important;
 }
-.css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper,
+.css-1l8j5k8 {
   border-right: none !important;
 }
 .css-9mgopn-MuiDivider-root {
@@ -120,7 +122,8 @@ body {
   background-repeat: no-repeat;
 }
 @media (min-width: 600px) {
-  .css-2dum1v-MuiDrawer-docked .MuiDrawer-paper {
+  .css-2dum1v-MuiDrawer-docked .MuiDrawer-paper,
+  .css-bpnhhg .MuiDrawer-paper {
     width: calc(120px + 1px) !important;
   }
 }

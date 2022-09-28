@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.105ec6cf.css",
+    "main.css": "/static/css/main.328a2a34.css",
     "main.js": "/static/js/main.f46b20fc.js",
     "static/media/Icon_betting_02.svg": "/static/media/Icon_betting_02.bd1f9c0511b15b23e01d31dde2d3865d.svg",
     "static/media/Babylonia_Logo.png": "/static/media/Babylonia_Logo.3eacc453e7cc6b1e773a.png",
@@ -12,11 +12,11 @@
     "static/media/Icon_tockenomics_02.svg": "/static/media/Icon_tockenomics_02.0bac09feb9a57154508b6a5d9a26310b.svg",
     "static/media/Icon_log_01.svg": "/static/media/Icon_log_01.008400f64aa52075593aa9192b7ff5a0.svg",
     "index.html": "/index.html",
-    "main.105ec6cf.css.map": "/static/css/main.105ec6cf.css.map",
+    "main.328a2a34.css.map": "/static/css/main.328a2a34.css.map",
     "main.f46b20fc.js.map": "/static/js/main.f46b20fc.js.map"
   },
   "entrypoints": [
-    "static/css/main.105ec6cf.css",
+    "static/css/main.328a2a34.css",
     "static/js/main.f46b20fc.js"
   ]
 }

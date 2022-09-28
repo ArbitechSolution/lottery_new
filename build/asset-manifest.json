@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.cd23a66f.css",
-    "main.js": "/static/js/main.94cd37f4.js",
+    "main.js": "/static/js/main.91b4f179.js",
     "static/media/Babylonia_Logo.png": "/static/media/Babylonia_Logo.3eacc453e7cc6b1e773a.png",
     "index.html": "/index.html",
     "main.cd23a66f.css.map": "/static/css/main.cd23a66f.css.map",
-    "main.94cd37f4.js.map": "/static/js/main.94cd37f4.js.map"
+    "main.91b4f179.js.map": "/static/js/main.91b4f179.js.map"
   },
   "entrypoints": [
     "static/css/main.cd23a66f.css",
-    "static/js/main.94cd37f4.js"
+    "static/js/main.91b4f179.js"
   ]
 }

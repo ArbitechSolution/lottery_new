@@ -82,6 +82,7 @@ function BuyPointOne() {
         const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
         let balance = await tokenContract.methods.balanceOf(account).call();
         balance = web3.utils.fromWei(balance);
+        balance = parseFloat(balance).toFixed(4);
         console.log("token balance", balance);
         setBabyBalance(balance);
       }

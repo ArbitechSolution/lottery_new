@@ -1,18 +1,21 @@
-
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './component/Navbar/Navbar';
-import BuyTickets from './component/BuyTickets/BuyTickets';
-import BuyPointOne from './component/BuyPointOne/BuyPointOne';
-import NextDraw from './component/NextDraw/NextDraw';
-
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./component/Navbar/Navbar";
+import BuyTickets from "./component/BuyTickets/BuyTickets";
+import BuyPointOne from "./component/BuyPointOne/BuyPointOne";
+import NextDraw from "./component/NextDraw/NextDraw";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Footer from "./component/Footer";
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <BuyTickets/>
-      <BuyPointOne/>
-      <NextDraw/>
+      <ToastContainer />
+      <Navbar />
+      <BuyTickets />
+      <BuyPointOne />
+      <NextDraw />
+      {/* <Footer /> */}
     </div>
   );
 }

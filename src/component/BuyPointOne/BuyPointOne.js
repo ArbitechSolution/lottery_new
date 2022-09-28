@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BuyPointOne.css";
 import { useSelector, useDispatch } from "react-redux";
-import info from "../../Assets/info-01_128px.png";
-import { BiMinus, BiPlus } from "react-icons/bi";
+import { toast } from "react-toastify";
 import { connectionAction } from "../../Redux/connection/actions";
 import {
   Modal,
@@ -38,6 +37,7 @@ function BuyPointOne() {
   const buttonColor = useColorModeValue("#F58634", "#0E1555");
   const buttonTxtColor = useColorModeValue("gray.900", "gray.200");
   const [valueInput, setInputValue] = useState("");
+  const [eidtLotteryNumber, setEidtLotteryNumber] = useState([]);
   const [actualCost, setActualCost] = useState(0);
   const [costValue, setCostValue] = useState(0);
   const [bulkDiscount, setBulkDiscount] = useState(0);
@@ -57,12 +57,14 @@ function BuyPointOne() {
   };
   const handleConfirm = () => {
     console.log("handle with care");
+    getBuyTicket();
   };
   const handleChangeInput = (e) => {
     console.log(e.target.value);
     if (e.target.value >= 0 && e.target.value <= 100) {
       setInputValue(e.target.value);
       getCost();
+      setEidtLotteryNumber("");
     } else {
       getCost();
     }
@@ -70,13 +72,10 @@ function BuyPointOne() {
   const getBabyBalance = async () => {
     try {
       if (account == "No Wallet") {
-        // toast.info("Not Connected");
         console.log("no wallet");
       } else if (account == "Wrong Network") {
-        // toast.info("Not Connected");
         console.log("wrong");
       } else if (account == "Connect Wallet") {
-        // toast.info("Not Connected");
         console.log("not conneted ");
       } else {
         const web3 = window.web3;
@@ -156,7 +155,13 @@ function BuyPointOne() {
     }
   };
   const handleEnable = async () => {
-    console.log("into Enable");
+    let arrayOf = [];
+    for (let i = 1; i <= valueInput; i++) {
+      let num = random();
+      console.log("num", num);
+      arrayOf = [...arrayOf, num];
+    }
+    setEidtLotteryNumber(arrayOf);
     try {
       if (valueInput > 0) {
         console.log(
@@ -165,7 +170,6 @@ function BuyPointOne() {
           parseFloat(actualCost),
           parseFloat(babyBalance)
         );
-
         if (parseFloat(actualCost) <= parseFloat(babyBalance)) {
           console.log(
             "actualCost <= babyBalance after check",
@@ -173,7 +177,6 @@ function BuyPointOne() {
             babyBalance
           );
           const web3 = window.web3;
-
           const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
           console.log(
             "token tokenContract",
@@ -181,63 +184,97 @@ function BuyPointOne() {
             BabyAddress,
             account
           );
-          let amount = web3.utils.toWei(actualCost);
+          const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+
+          const id = await lotteryContract.methods
+            .viewCurrentLotteryId()
+            .call();
+          console.log(id);
+          const values = await lotteryContract.methods.viewLottery(id).call();
+          let acutalCostForBuy = await lotteryContract.methods
+            .calculateTotalPriceForBulkTickets(
+              values.discountDivisor,
+              values.priceTicketInBABY,
+              valueInput
+            )
+            .call();
+          console.log("acutalCostForBuy", acutalCostForBuy);
+          // let amount = web3.utils.toWei(acutalCostForBuy);
           await tokenContract.methods
-            .approve(BabyAddress, amount)
+            .approve(BabyAddress, acutalCostForBuy)
             .send({
               from: account,
-            })
-            .on("receipt", (receipt) => {
-              console.log("mintValue", receipt);
             });
+          // .on("receipt", (receipt) => {
+          //   console.log("mintValue", receipt);
+          // });
           setApproved(true);
+          toast.success("Approved Sucessfully");
           console.log("token approveed");
         } else {
-          console.log("balance is low");
+          toast.info("Your balance is low!");
         }
       } else {
-        console.log("please input Tickets count");
+        toast.info("Please input how many tickets you want to buy");
       }
     } catch (error) {
-      console.log("error while getting baby balance", error);
+      toast.error("Transaction Failed");
+      console.error("error while getting baby balance", error);
     }
   };
   const getBuyTicket = async () => {
     try {
       if (account == "No Wallet") {
-        // toast.info("Not Connected");
-        console.log("no wallet");
+        toast.info("Not Connected");
       } else if (account == "Wrong Network") {
-        // toast.info("Not Connected");
-        console.log("wrong");
+        toast.info("Not Connected");
       } else if (account == "Connect Wallet") {
-        // toast.info("Not Connected");
-        console.log("not conneted ");
+        toast.info("Not Connected");
       } else {
-        const web3 = window.web3;
-        const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
-        const id = await lotteryContract.methods.viewCurrentLotteryId().call();
-        console.log(id);
-        let array = [];
-        for (let i = 1; i <= valueInput; i++) {
-          let num = random();
-          array = [...array, num];
+        if (approved == true) {
+          const web3 = window.web3;
+          const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+          const id = await lotteryContract.methods
+            .viewCurrentLotteryId()
+            .call();
+          console.log("viewCurrentLotteryId", id);
+          let array = [];
+          for (let i = 1; i <= valueInput; i++) {
+            let num = random();
+            array = [...array, num];
+          }
+          console.log("array and id", array, id);
+          const result = await lotteryContract.methods
+            .buyTickets(id, array)
+            .send({ from: account });
+          toast.success("Transaction Sucessful");
+          setApproved(false);
+        } else {
+          toast.info("Please enable first !");
         }
-        console.log("array", array);
-        const result = await lotteryContract.methods
-          .buyTickets(id, array)
-          .send({ from: account });
       }
     } catch (error) {
-      console.log("error while getting baby balance");
+      toast.error("Transaction Failed");
+      console.log("error while getting baby balance", error);
     }
   };
   const random = () => {
     let randomNumber = 100000 + Math.floor(Math.random() * 900000);
     randomNumber = 1000000 + randomNumber;
-    console.log("randomNumber", randomNumber, randomNumber.toString().length);
     return randomNumber;
   };
+
+  const handleLotteryNumberEdit = (e) => {
+    console.log("editable handleLotteryNumberEdit", eidtLotteryNumber);
+    // console.log("value of number ", e.target.value);
+
+    if (e.target.value <= 999999) {
+      setEidtLotteryNumber(e.target.value);
+    } else {
+      toast.info("You can add only upto 6 digit number !");
+    }
+  };
+
   useEffect(() => {
     getBabyBalance();
     getCost();
@@ -247,7 +284,9 @@ function BuyPointOne() {
       getCost();
     }, 1000);
   }, [valueInput]);
-
+  // useEffect(() => {
+  //   handleLotteryNumberEdit();
+  // }, [eidtLotteryNumber]);
   useEffect(() => {
     document.getElementById("input").focus();
   });
@@ -451,7 +490,7 @@ function BuyPointOne() {
                               <div className="row d-flex justify-content-between">
                                 <div className="col-12 mt-2 mb-2 cost">
                                   <span>Total Cost:</span>
-                                  <span>1.18 BABY</span>
+                                  <span>{actualCost}&nbsp; BABY</span>
                                 </div>
                               </div>
                             </div>
@@ -466,18 +505,29 @@ function BuyPointOne() {
                               </div>
                             </div>
                             <div className="row d-flex justify-content-center mt-3 mb-3">
-                              <div className="col-11 buyoneBox">
-                                <div className="row">
-                                  <div className="col-lg-10">
-                                    <input
-                                      type="number"
-                                      className="form-control"
-                                      placeholder="0 0 0 0 0 0"
-                                      id="input"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
+                              {eidtLotteryNumber &&
+                                eidtLotteryNumber.map((item, index) => {
+                                  console.log("item", item);
+
+                                  return (
+                                    <div className="col-11 buyoneBox mt-1">
+                                      <div className="row">
+                                        <div className="col-lg-10 ">
+                                          <input
+                                            type="number"
+                                            className="form-control"
+                                            placeholder="0   0   0   0   0   0"
+                                            id="input"
+                                            value={item}
+                                            onChange={(e) => {
+                                              handleLotteryNumberEdit(e);
+                                            }}
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
                             </div>
                           </div>
                         </div>

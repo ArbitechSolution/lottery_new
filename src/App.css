@@ -87,3 +87,6 @@ body {
 .css-1oxhx2p {
   top: -50px !important;
 }
+.isCentered {
+  overflow: auto !important;
+}

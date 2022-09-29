@@ -18,7 +18,7 @@ function Navbars() {
     <div style={{ backgroundColor: "#2D3748" }} className="ps-3 pe-3">
       <Navbar collapseOnSelect expand="lg" variant="dark">
         <Navbar.Brand href="#home">
-          <img src={BabyloniaLogo} />
+          <img src={BabyloniaLogo} className="babyImage" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse

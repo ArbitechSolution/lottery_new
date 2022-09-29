@@ -162,6 +162,7 @@ function BuyPointOne() {
       console.log("num", num);
       arrayOf = [...arrayOf, num];
     }
+    setApproved(true);
     setEidtLotteryNumber(arrayOf);
     try {
       if (valueInput > 0) {
@@ -213,7 +214,7 @@ function BuyPointOne() {
           toast.success("Approved Sucessfully");
           console.log("token approveed");
         } else {
-          toast.info("Your balance is low!");
+          toast.info("Insufficient Balance!");
         }
       } else {
         toast.info("Please input how many tickets you want to buy");
@@ -303,11 +304,11 @@ function BuyPointOne() {
   return (
     <div className="container">
       <div className="row d-flex justify-content-center mt-4 mb-4">
-        <div className="col-lg-5 buyTicketBox">
+        <div className="col-lg-9 buyTicketBox">
           <div className="buyTicketBoxMini">
-            <p className="buyTicketSpan mt-4 text-center">Buy Tickets</p>
+            <p className="buyTicketSpan mt-2 text-center">Buy Tickets</p>
             <div className="row d-flex justify-content-center">
-              <div className="col-9 buyTicketBox mb-3">
+              <div className="col-9 buyTicketBox mb-1">
                 <div className="row d-flex justify-content-center">
                   <div className="col-11 d-flex justify-content-between ">
                     <span className="buyPointOneSpan">Buy:</span>
@@ -325,7 +326,7 @@ function BuyPointOne() {
                           onChange={(e) => handleChangeInput(e)}
                         />
                       </div>
-                      <div className="col-12 d-flex justify-content-end mb-2">
+                      <div className="col-12 d-flex justify-content-end">
                         <span className="buyPointOneSpan">
                           ~{costValue} &nbsp;BABY
                         </span>
@@ -335,16 +336,17 @@ function BuyPointOne() {
                 </div>
 
                 <div className="col-12 text-end ">
-                  {babyBalance <= 0}
-                  <span className="InsufficientText">
-                    Insufficient BABY balance
-                  </span>
-                  <br />
+                  {/* {babyBalance <= 0 && (
+                    <span className="InsufficientText">
+                      Insufficient BABY balance
+                    </span>
+                  )}
+                  <br /> */}
                   <span className="InsufficientTextOne">
                     BABY Balance: {babyBalance}
                   </span>
                 </div>
-                <div className="row d-flex justify-content-around mt-3">
+                <div className="row d-flex justify-content-around mt-2">
                   <div className="col-lg-5 buyoneBoxmini">
                     <span className="buyPointOneSpan">Max</span>
                   </div>
@@ -352,27 +354,28 @@ function BuyPointOne() {
                     <span className="buyPointOneSpan">0</span>
                   </div>
                 </div>
-                <div className="row d-flex justify-content-center mt-3">
+                <div className="row d-flex justify-content-center mt-1">
                   <div className="col-11 d-flex justify-content-between">
                     <span className="buyPointOneSpan">Cost (BABY)</span>
                     <span className="buyPointOneSpan">{costValue} BABY</span>
                   </div>
                 </div>
-                <div className="row d-flex justify-content-center mt-3">
+                <div className="row d-flex justify-content-center mt-1">
                   <div className="col-11 d-flex justify-content-between">
                     <span className="buyPointOneSpan">
-                      <span className="fw-bold">{percent}&nbsp;%</span>-Bulk
-                      discount
+                      {/* <span className="fw-bold">{percent}&nbsp;%</span>-Bulk
+                      discount */}
+                      <span>{percent}&nbsp;%</span>-Bulk discount
                     </span>
                     <span className="buyPointOneSpan">
                       ~{bulkDiscount} &nbsp; BABY
                     </span>
                   </div>
                 </div>
-                <div className="row d-flex justify-content-center mt-3  mb-4">
+                <div className="row d-flex justify-content-center mt-1  mb-2">
                   <div className="col-11 d-flex justify-content-between">
                     <span className="buyPointOneSpan">You pay</span>
-                    <span className="buyPointOneSpan fw-bold">
+                    <span className="buyPointOneSpan ">
                       ~{actualCost} &nbsp; BABY
                     </span>
                   </div>
@@ -380,8 +383,8 @@ function BuyPointOne() {
               </div>
             </div>
 
-            <div className="row d-flex justify-content-center mt-3 mb-3">
-              <div className="col-md-7">
+            <div className="row d-flex justify-content-center mt-2 mb-2">
+              <div className="col-md-6">
                 <div className="d-grid gap-2">
                   {lotteryCard == true ? (
                     <button
@@ -412,8 +415,8 @@ function BuyPointOne() {
               </div>
             </div>
 
-            <div className="row d-flex justify-content-center mb-3">
-              <div className="col-md-7">
+            <div className="row d-flex justify-content-center mb-2">
+              <div className="col-md-6">
                 <div className="d-grid gap-2">
                   <button
                     className="buyTicketBox-button"
@@ -432,13 +435,13 @@ function BuyPointOne() {
               </div>
             </div>
 
-            <div className="row d-flex justify-content-center mb-5">
-              <div className="col-md-7">
+            <div className="row d-flex justify-content-center mb-3">
+              <div className="col-md-6">
                 <div className="d-grid gap-2">
                   {approved ? (
                     <button
                       className="buyTicketBox-button-trensparent"
-                      size="lg"
+                      size="md"
                       onClick={onOpen}
                     >
                       View/Edit Number
@@ -446,7 +449,7 @@ function BuyPointOne() {
                   ) : (
                     <button
                       className="buyTicketBox-button-trensparent"
-                      size="lg"
+                      size="md"
                       disabled
                       // onClick={onOpen}
                     >
@@ -542,7 +545,7 @@ function BuyPointOne() {
                         </div>
                       </div>
                       <div className="row d-flex justify-content-center mt-2 mb-2">
-                        <div className="col-md-7">
+                        <div className="col-md-6">
                           <div className="d-grid gap-2">
                             <button
                               className="buyTicketBox-button"

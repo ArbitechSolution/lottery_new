@@ -8,14 +8,16 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./component/Footer";
 import PersistentDrawerLeft from "./component/Menu";
+import LotteryPage from "./component/CombineLotteryPage/lotteryPage";
 function App() {
   return (
-    <div className="App">
+    <div className="App ">
       <ToastContainer />
       <Navbar />
       <PersistentDrawerLeft />
-      <BuyTickets />
-      <BuyPointOne />
+      <LotteryPage />
+      {/* <BuyTickets />
+      <BuyPointOne /> */}
       <NextDraw />
       <Footer />
     </div>

@@ -89,9 +89,9 @@ function BuyTickets() {
     getBabyBalance();
   }, [account]);
   return (
-    <div className="container">
+    <div className="container ">
       <div className="row d-flex justify-content-center mt-4 mb-4">
-        <div className="col-lg-5 buyTicketBox">
+        <div className="col-lg-9 buyTicketBox">
           <div className="buyTicketBoxMini">
             <p className="buyTicketSpan mt-4" style={{ paddingLeft: "45px" }}>
               Buy Tickets
@@ -99,7 +99,7 @@ function BuyTickets() {
             <div className="row d-flex justify-content-center">
               <div className="col-10 buyTicketBox">
                 <div className="row d-flex justify-content-between">
-                  <div className="col-lg-4 mt-2 mb-2">
+                  <div className="col-lg-4 mt-3 mb-3">
                     <span>&#8383; BNB</span>
                     {/* <div class="select-dropdown">
                       <select>
@@ -116,9 +116,9 @@ function BuyTickets() {
                   </div>
                 </div>
               </div>
-              <div className="row d-flex justify-content-center mt-4 mb-2">
-                <div className="col-lg-6 col-11 buyTicketBox">
-                  <div className="row mt-3 mb-3">
+              <div className="row d-flex justify-content-center mt-3 mb-3">
+                <div className="col-lg-8 col-11 buyTicketBox">
+                  <div className="row mt-1 mb-1">
                     <div className="col-8 d-flex align-items-center">
                       <BiMinus size={30} />
                       <div className="miniboxoption">100</div>
@@ -130,24 +130,24 @@ function BuyTickets() {
                   </div>
                 </div>
               </div>
-              <div className="row d-flex justify-content-center mt-4 mb-2">
-                <div className="col-md-8">
+              <div className="row d-flex justify-content-center mt-2 mb-2">
+                <div className="col-md-12">
                   <ul className="no-bullets">
-                    <li className="buyTicketSpanone ">Cost 0.000034 BNB</li>
-                    <li className="buyTicketSpanone mt-3">
+                    <li className="buyTicketSpanBoxone ">Cost 0.000034 BNB</li>
+                    <li className="buyTicketSpanBoxone mt-2">
                       Discount 0.01% <img src={info} width="30px" />
                     </li>
-                    <li className="buyTicketSpanone mt-3">
+                    <li className="buyTicketSpanBoxone mt-2">
                       Total 0.000034 BNB + gas
                     </li>
                   </ul>
                 </div>
               </div>
-              <div className="row d-flex justify-content-center mt-3 mb-5">
-                <div className="col-md-7">
+              <div className="row d-flex justify-content-center mt-2 mb-3">
+                <div className="col-md-8">
                   <div className="d-grid gap-2">
                     <button
-                      className="buyTicketBox-button"
+                      className="buyTicketBox-button-connect"
                       size="lg"
                       onClick={() => handleConnect()}
                     >

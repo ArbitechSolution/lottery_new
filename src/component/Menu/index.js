@@ -19,15 +19,16 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Desktop from "../../Assets/menu/icon_home_03.svg";
-import Betting from "../../Assets/menu/Icon_betting_02.svg";
-import Pool from "../../Assets/menu/icon_pool_02.svg";
+import Betting from "../../Assets/menu/iconbetting2.svg";
+import Pool from "../../Assets/menu/Icon_game_02.svg";
 import Win from "../../Assets/menu/icon_pool_02.svg";
-// import NftIcon from "../../Assets/menu/icon_nft.svg";
+import NftIcon from "../../Assets/menu/icon_NFT_03.svg";
 import Media from "../../Assets/menu/icon_media_01.svg";
 import Logs from "../../Assets/menu/Icon_log_01.svg";
 import Contact from "../../Assets/menu/Icon_partners_03.svg";
 import Roadmap from "../../Assets/menu/Icon_roadmap_01.svg";
 import Tokenomics from "../../Assets/menu/Icon_tockenomics_02.svg";
+
 import { Icon } from "@mui/material/Icon";
 const drawerWidth = 240;
 
@@ -142,7 +143,18 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {[
+            "Desktop",
+            "Betting",
+            "Pool",
+            // "Win",
+            "Nft",
+            "Media",
+            "Logs",
+            "Contacts",
+            "Roadmap",
+            "Tokenomics",
+          ].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
@@ -162,12 +174,31 @@ export default function MiniDrawer() {
                     <img className="sideMenuIcon" src={Desktop} alt="Desktop" />
                   )}
                   {index == 1 && (
-                    <img className="sideMenuIcon" src={Roadmap} alt="Roadmap" />
+                    <img className="sideMenuIcon" src={Betting} alt="Desktop" />
                   )}
                   {index == 2 && (
-                    <img className="sideMenuIcon" src={Win} alt="Win" />
+                    <img className="sideMenuIcon" src={Pool} alt="Desktop" />
                   )}
+                  {/* {index == 3 && (
+                    <img className="sideMenuIcon" src={Win} alt="Win" />
+                  )} */}
                   {index == 3 && (
+                    <img className="sideMenuIcon" src={NftIcon} alt="Desktop" />
+                  )}
+
+                  {index == 4 && (
+                    <img className="sideMenuIcon" src={Media} alt="Desktop" />
+                  )}
+                  {index == 5 && (
+                    <img className="sideMenuIcon" src={Logs} alt="Desktop" />
+                  )}
+                  {index == 6 && (
+                    <img className="sideMenuIcon" src={Contact} alt="Desktop" />
+                  )}
+                  {index == 7 && (
+                    <img className="sideMenuIcon" src={Roadmap} alt="Roadmap" />
+                  )}
+                  {index == 8 && (
                     <img
                       className="sideMenuIcon"
                       src={Tokenomics}
@@ -185,7 +216,7 @@ export default function MiniDrawer() {
 
                   {/* <img className="sideMenuIcon" src={Media} alt="Desktop" />
                   <img className="sideMenuIcon" src={Logs} alt="Desktop" />
-                  <img className="sideMenuIcon" src={Contact} alt="Desktop" />
+                
                   <img className="sideMenuIcon" src={Roadmap} alt="Desktop" />
                   <img
                     className="sideMenuIcon"
@@ -200,7 +231,7 @@ export default function MiniDrawer() {
           ))}
         </List>
         {/* <Divider /> */}
-        <List>
+        {/* <List>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
@@ -216,29 +247,12 @@ export default function MiniDrawer() {
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
                   }}
-                >
-                  {index == 0 && (
-                    <img className="sideMenuIcon" src={Betting} alt="Desktop" />
-                  )}
-                  {/* {index == 1 && (
-                    <img
-                      className="sideMenuIcon"
-                      src={Tokenomics}
-                      alt="Desktop"
-                    />
-                  )} */}
-                  {/* {index == 2 && (
-                    <img className="sideMenuIcon" src={Win} alt="Desktop" />
-                  )}
-                  {index == 3 && (
-                    <img className="sideMenuIcon" src={Media} alt="Desktop" />
-                  )} */}
-                </ListItemIcon>
+                ></ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       {/* <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />

@@ -8,6 +8,9 @@
 }
 body {
   background-color: #cbd5e0 !important;
+  /* display: flex; */
+  /* min-height: 100vh; */
+  /* d-flex flex-column min-vh-100 */
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -104,7 +107,7 @@ body {
   display: none !important;
 }
 .MuiDrawer-paper {
-  top: 20% !important;
+  top: 15% !important;
   background-color: transparent !important;
 }
 .css-12i7wg6-MuiPaper-root-MuiDrawer-paper,
@@ -115,8 +118,8 @@ body {
   border-bottom: none !important;
 }
 .sideMenuIcon {
-  width: 50px;
-  height: 50px;
+  width: 38px;
+  height: 38px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -125,5 +128,34 @@ body {
   .css-2dum1v-MuiDrawer-docked .MuiDrawer-paper,
   .css-bpnhhg .MuiDrawer-paper {
     width: calc(120px + 1px) !important;
+    margin-left: 20px !important;
   }
+}
+.css-h4y409-MuiList-root {
+  padding-top: 0px !important;
+}
+@media (max-width: 420px) {
+  .css-h4y409-MuiList-root {
+    display: none !important;
+  }
+}
+/* .mainFooter {
+  position: relative;
+} */
+/* .lotteryPage {
+  min-height: 100vh;
+} */
+.footer {
+  /* position: fixed; */
+  margin-top: auto;
+}
+.css-1fqi8hc-MuiButtonBase-root-MuiListItemButton-root:hover {
+  background-color: #3971ad !important;
+  border-radius: 15px !important;
+}
+.css-1ddsiuw-MuiListItemIcon-root {
+  margin-right: unset !important;
+}
+.css-uxa1ks-MuiListItem-root {
+  width: 70% !important;
 }

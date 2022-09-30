@@ -11,14 +11,14 @@ import PersistentDrawerLeft from "./component/Menu";
 import LotteryPage from "./component/CombineLotteryPage/lotteryPage";
 function App() {
   return (
-    <div className="App ">
+    <div className="App d-flex flex-column min-vh-100">
       <ToastContainer />
       <Navbar />
       <PersistentDrawerLeft />
       <LotteryPage />
       {/* <BuyTickets />
       <BuyPointOne /> */}
-      <NextDraw />
+      {/* <NextDraw /> */}
       <Footer />
     </div>
   );

@@ -16,7 +16,7 @@ import SocialNetworkIcons from "../SocialNetworkIcons";
 function Footer() {
   const bgColor = useColorModeValue("gray.700", "gray.900");
   return (
-    <div className="container mt-5">
+    <div className="container mt-auto footer">
       <div className="row d-flex justify-content-center mt-4 mb-4">
         <div className="col-lg-3 buyTicketBox">
           <div className="buyTicketBoxMini">

@@ -25,6 +25,8 @@ import {
 } from "@chakra-ui/react";
 import { TokenAbI, TokenAddress } from "../Utils/token";
 import { BabyAbI, BabyAddress } from "../Utils/baby";
+import BabyLogo from "../../Assets/Babylonia_Logo.png";
+
 function BuyPointOne() {
   const [open, setOpen] = useState(false);
   const textTitleColor = useColorModeValue("black", "gray.100");
@@ -162,7 +164,7 @@ function BuyPointOne() {
       console.log("num", num);
       arrayOf = [...arrayOf, num];
     }
-    setApproved(true);
+    // setApproved(true);
     setEidtLotteryNumber(arrayOf);
     try {
       if (valueInput > 0) {
@@ -306,7 +308,14 @@ function BuyPointOne() {
       <div className="row d-flex justify-content-center mt-4 mb-4">
         <div className="col-lg-9 buyTicketBox">
           <div className="buyTicketBoxMini">
-            <p className="buyTicketSpan mt-2 text-center">Buy Tickets</p>
+            <div className="row ">
+              <div className="col cardLogo">
+                <img src={BabyLogo} alt="" />
+              </div>
+            </div>
+            <p className="buyTicketSpan mt-2" style={{ paddingLeft: "20px" }}>
+              Buy Tickets
+            </p>
             <div className="row d-flex justify-content-center">
               <div className="col-9 buyTicketBox mb-1">
                 <div className="row d-flex justify-content-center">

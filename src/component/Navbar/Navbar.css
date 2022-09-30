@@ -17,5 +17,6 @@
   font-weight: 600;
 }
 .babyImage {
-  width: 125px !important;
+  width: 50px !important;
+  margin-left: 40px !important;
 }

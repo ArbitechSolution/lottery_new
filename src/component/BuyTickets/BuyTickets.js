@@ -32,7 +32,7 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { TokenAbI, TokenAddress } from "../Utils/token";
-
+import BabyLogo from "../../Assets/Babylonia_Logo.png";
 function BuyTickets() {
   const [open, setOpen] = useState(false);
   const textTitleColor = useColorModeValue("black", "gray.100");
@@ -93,7 +93,12 @@ function BuyTickets() {
       <div className="row d-flex justify-content-center mt-4 mb-4">
         <div className="col-lg-9 buyTicketBox">
           <div className="buyTicketBoxMini">
-            <p className="buyTicketSpan mt-4" style={{ paddingLeft: "45px" }}>
+            <div className="row ">
+              <div className="col cardLogo">
+                <img src={BabyLogo} alt="" />
+              </div>
+            </div>
+            <p className="buyTicketSpan mt-2" style={{ paddingLeft: "20px" }}>
               Buy Tickets
             </p>
             <div className="row d-flex justify-content-center">
@@ -143,7 +148,7 @@ function BuyTickets() {
                   </ul>
                 </div>
               </div>
-              <div className="row d-flex justify-content-center mt-2 mb-3">
+              <div className="row d-flex justify-content-center mt-3 mb-4">
                 <div className="col-md-8">
                   <div className="d-grid gap-2">
                     <button

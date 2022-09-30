@@ -149,13 +149,32 @@ body {
   /* position: fixed; */
   margin-top: auto;
 }
-.css-1fqi8hc-MuiButtonBase-root-MuiListItemButton-root:hover {
+.css-1fqi8hc-MuiButtonBase-root-MuiListItemButton-root:hover,
+.css-kue437:hover {
   background-color: #3971ad !important;
   border-radius: 15px !important;
 }
 .css-1ddsiuw-MuiListItemIcon-root {
   margin-right: unset !important;
 }
-.css-uxa1ks-MuiListItem-root {
+.css-uxa1ks-MuiListItem-root,
+.css-qkz7df {
   width: 70% !important;
+}
+.navbarIconBulb {
+  width: 32px;
+  height: 40px;
+}
+.navbarIcons {
+  width: 40px;
+  height: 40px;
+}
+.nav-link:hover {
+  color: black !important;
+}
+.css-39bbo6 {
+  display: none !important;
+}
+.css-1ontqvh {
+  padding-top: 0px !important;
 }

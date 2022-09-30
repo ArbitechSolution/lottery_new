@@ -71,6 +71,7 @@
   font-size: 22px;
   line-height: 26px;
   text-align: left;
+  padding-left: 60px;
 }
 .select-dropdown,
 .select-dropdown * {
@@ -129,4 +130,11 @@ li {
 }
 main {
   background-image: linear-gradient(to right, #1e130c, #9a8478) !important;
+}
+.cardLogo {
+  display: flex;
+}
+.cardLogo img {
+  width: 120px;
+  padding: 10px 0px 0px 10px;
 }

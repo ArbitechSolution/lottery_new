@@ -18,8 +18,8 @@ function App() {
       <Navbar />
       <PersistentDrawerLeft />
       <Routes>
-        <Route path="/" element={<LotteryPage />}></Route>
-        <Route path="/classic" element={<ClassicLottery />}></Route>
+        {/* <Route path="/" element={<LotteryPage />}></Route> */}
+        <Route path="/" element={<ClassicLottery />}></Route>
       </Routes>
       {/* <LotteryPage /> */}
       {/* <BuyTickets />

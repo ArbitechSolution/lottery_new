@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.54a202b8.css",
-    "main.js": "/static/js/main.8faf0d8f.js",
+    "main.js": "/static/js/main.3d62b8a8.js",
     "static/media/Icon_partners_03.svg": "/static/media/Icon_partners_03.1fbd3a3c00ae894a15376e9c0565647a.svg",
     "static/media/Icon_game_02.svg": "/static/media/Icon_game_02.6001c992a89a3c5344209d804a5c0f75.svg",
     "static/media/icon_NFT_03.svg": "/static/media/icon_NFT_03.a77a49c1bb3099aa4ecdcc0c4459bc0f.svg",
@@ -15,10 +15,10 @@
     "static/media/Icon_tockenomics_02.svg": "/static/media/Icon_tockenomics_02.0bac09feb9a57154508b6a5d9a26310b.svg",
     "index.html": "/index.html",
     "main.54a202b8.css.map": "/static/css/main.54a202b8.css.map",
-    "main.8faf0d8f.js.map": "/static/js/main.8faf0d8f.js.map"
+    "main.3d62b8a8.js.map": "/static/js/main.3d62b8a8.js.map"
   },
   "entrypoints": [
     "static/css/main.54a202b8.css",
-    "static/js/main.8faf0d8f.js"
+    "static/js/main.3d62b8a8.js"
   ]
 }

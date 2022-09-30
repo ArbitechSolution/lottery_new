@@ -30,7 +30,8 @@ function Navbars() {
           className=" d-flex justify-content-end"
         >
           <Nav className="text-center nav-buttons">
-            <Nav.Link href="/classic" className="lotterysize">
+            {/* <Nav.Link href="/classic" className="lotterysize"> */}
+            <Nav.Link href="/" className="lotterysize">
               <button
                 className="btn btn-connect-Wallet"
                 // onClick={() => handleConnect()}

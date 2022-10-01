@@ -49,8 +49,8 @@ function ClassicLotteryComponent() {
   return (
     <div className="container ">
       <div className="row d-flex justify-content-center mt-4 mb-4">
-        <div className="col-lg-9 buyTicketBox">
-          <div className="buyTicketBoxMini">
+        <div className="col-lg-12 buyTicketBoxClass">
+          <div className="buyTicketBoxMiniClassic">
             <div className="row ">
               <div className="col cardLogo">
                 <img src={BabyLogo} alt="" />
@@ -60,26 +60,32 @@ function ClassicLotteryComponent() {
               CLASSIC LOTTERY
             </p>
             <div className="row d-flex justify-content-center">
-              <div className="col-11 buyTicketBoxClassic buyTicketBoxClassic1 mt-2">
+              <div className="col-10 buyTicketBoxClassic buyTicketBoxClassic1 mt-2">
                 <div className="row  ">
-                  <div className="col-lg-11 mt-2 mb-2 divInputText">
-                    <span>Prize Pool</span>
-                    <input type="number" className="inputClassic " />
+                  <div className="col-lg-5 mt-2 mb-2 divInputText">
+                    <span className="spanText">Prize Pool</span>
+                  </div>
+                  <div className="col-lg-5 mt-2 mb-2 divInputText">
+                    <input type="number" className="inputClassic" />
                   </div>
                 </div>
               </div>
-              <div className="col-11 buyTicketBoxClassic buyTicketBoxClassic2 mt-2">
+              <div className="col-10 buyTicketBoxClassic buyTicketBoxClassic2 mt-2">
                 <div className="row  ">
-                  <div className="col-lg-11 mt-2 mb-2 divInputText">
-                    <span>Next Draw</span>
-                    <input type="number" className="inputClassic " />
+                  <div className="col-lg-5 mt-2 mb-2 divInputText">
+                    <span className="spanText">Next Draw</span>
+                  </div>
+                  <div className="col-lg-5 mt-2 mb-2 divInputText">
+                    <input type="number" className="inputClassic" />
                   </div>
                 </div>
               </div>
-              <div className="col-11 buyTicketBoxClassic buyTicketBoxClassic3 mt-2">
+              <div className="col-10 buyTicketBoxClassic buyTicketBoxClassic3 mt-2">
                 <div className="row  ">
-                  <div className="col-lg-11 mt-2 mb-2 divInputText">
-                    <span>Last Winner</span>
+                  <div className="col-lg-5 mt-2 mb-2 divInputText">
+                    <span className="spanText">Last Winner</span>
+                  </div>
+                  <div className="col-lg-5 mt-2 mb-2 divInputText">
                     <input type="number" className="inputClassic " />
                   </div>
                 </div>

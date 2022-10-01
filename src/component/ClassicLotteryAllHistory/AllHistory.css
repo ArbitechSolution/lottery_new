@@ -56,10 +56,10 @@
   font-weight: 500;
   font-size: 16px;
 }
-.buyTicketSpan {
+.buyTicketSpanAlHistory {
   font-family: "Ropa Sans";
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 20px;
   text-align: left;
   /* padding-top: 30px; */
@@ -152,9 +152,20 @@ main {
 }
 .inputClassic {
   padding: 5px !important;
+  width: 130px;
 }
 .divInputText {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.spanText {
+  font-size: 16px;
+  font-family: "Ropa Sans";
+  font-style: normal;
+  font-weight: 500;
 }

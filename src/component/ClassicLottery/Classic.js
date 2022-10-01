@@ -3,6 +3,14 @@ import "./Classic.css";
 import BabyLogo from "../../Assets/Babylonia_Logo.png";
 function ClassicLotteryComponent() {
   const [winnerNumber, setWinnerNumber] = useState(0);
+  const [hours, setHours] = useState("00");
+  const [second, setSecond] = useState("00");
+  const handleTimeFornextDraw = () => {
+    setHours("00");
+    setSecond("00");
+  };
+  const handlePreviousLotteryWinner = () => {};
+
   return (
     <div className="container ">
       <div className="row d-flex justify-content-center mt-4 mb-4">
@@ -33,7 +41,9 @@ function ClassicLotteryComponent() {
                     <span className="spanText">Next Draw</span>
                   </div>
                   <div className="col-lg-5 mt-2 mb-2 divInputText">
-                    <input type="number" className="inputClassic" />
+                    <span className="inputClassic spanWinner">
+                      {hours}h &nbsp; {second}m
+                    </span>
                   </div>
                 </div>
               </div>

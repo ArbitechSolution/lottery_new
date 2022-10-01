@@ -14,14 +14,14 @@ function PrizePool() {
               className="row d-flex justify-content-center "
               style={{ paddingLeft: "20px" }}
             >
-              <div className="col-lg-12 col-12 cardParaDiv ms-1">
+              <div className="col-lg-12 col-12 cardParaDiv ms-1 me-2">
                 <span>Matches first 1: 7.5 %</span>
                 <span>Matches first 2: 10 %</span>
                 <span>Matches first 3: 12.5 %</span>
                 <span>Matches first 4: 15 %</span>
                 <span>Matches first 5: 20 %</span>
                 <span>Matches all 6 : 25 %</span>
-                <span className="mt-4">Promotions & Marketing: 5%</span>
+                <span className="mt-4">Promotions & Marketing:5%</span>
                 <span>Buyback: 5%</span>
               </div>
             </div>

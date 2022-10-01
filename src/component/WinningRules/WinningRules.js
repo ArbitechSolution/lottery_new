@@ -39,7 +39,7 @@ function WinningRules() {
               </div>
               <div className="col-lg-5 col-12">
                 <div className="row">
-                  <div className="col ">
+                  <div className="col me-5">
                     <img src={One} alt="lottery Number" className="oneImage" />
                   </div>
                 </div>

@@ -49,7 +49,7 @@ function AllHistory() {
               </div>
               <div className="col-10 buyTicketBoxClassic buyTicketBoxClassic2 mt-2">
                 <div className="row  ">
-                  <div className="col-lg-5 mt-2 mb-2 divInputText">
+                  <div className="col-lg-4 mt-2 mb-2 divInputText">
                     <span className="spanText">Round</span>
                   </div>
                   <div className="col-lg-5 mt-2 mb-2 divInputText">

@@ -1,24 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./PrizePool.css";
-import { useSelector, useDispatch } from "react-redux";
-
-import { TokenAbI, TokenAddress } from "../Utils/token";
-import BabyLogo from "../../Assets/Babylonia_Logo.png";
-import One from "../../Assets/Group44.png";
-import Two from "../../Assets/Group45.png";
-import Three from "../../Assets/Group46.png";
 function PrizePool() {
-  const [open, setOpen] = useState(false);
-
-  //   const [account, setAccount] = useState("Connect Wallet");
-  const dispatch = useDispatch();
-  const [babyBalance, setBabyBalance] = useState(0);
-
-  let account = useSelector((state) => state.connect?.connection);
-
-  // useEffect(() => {
-  //   getBabyBalance();
-  // }, [account]);
   return (
     <div className="container ">
       <div className="row d-flex justify-content-center mt-4 mb-4">

@@ -145,14 +145,7 @@ main {
   width: 120px;
   padding: 10px 0px 0px 10px;
 }
-.inputDiv,
-.inputClassic {
-  background-color: #fff !important;
-  border-radius: 12px !important;
-}
-.inputClassic {
-  padding: 5px !important;
-}
+
 .divInputText {
   display: flex;
   justify-content: space-between;

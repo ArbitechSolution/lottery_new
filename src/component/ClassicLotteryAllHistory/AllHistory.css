@@ -154,6 +154,12 @@ main {
   padding: 5px !important;
   width: 130px;
 }
+.inputClassicRound {
+  background-color: #fff !important;
+  border-radius: 12px !important;
+  padding: 5px !important;
+  width: 60px;
+}
 .divInputText {
   display: flex;
   justify-content: space-between;
@@ -168,4 +174,11 @@ main {
   font-family: "Ropa Sans";
   font-style: normal;
   font-weight: 500;
+}
+.lessAndGreaterThen {
+  cursor: pointer;
+}
+.spanWinner {
+  height: 37px;
+  /* width: 130px; */
 }

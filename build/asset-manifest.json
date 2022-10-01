@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.36dc316a.css",
-    "main.js": "/static/js/main.329c18fa.js",
+    "main.css": "/static/css/main.3ebef181.css",
+    "main.js": "/static/js/main.927d3995.js",
     "static/media/Icon_partners_03.svg": "/static/media/Icon_partners_03.1fbd3a3c00ae894a15376e9c0565647a.svg",
     "static/media/Icon_game_02.svg": "/static/media/Icon_game_02.6001c992a89a3c5344209d804a5c0f75.svg",
     "static/media/icon_NFT_03.svg": "/static/media/icon_NFT_03.a77a49c1bb3099aa4ecdcc0c4459bc0f.svg",
@@ -14,11 +14,11 @@
     "static/media/Icon_roadmap_01.svg": "/static/media/Icon_roadmap_01.78229abebeeed6cc51162251989d1cb5.svg",
     "static/media/Icon_tockenomics_02.svg": "/static/media/Icon_tockenomics_02.0bac09feb9a57154508b6a5d9a26310b.svg",
     "index.html": "/index.html",
-    "main.36dc316a.css.map": "/static/css/main.36dc316a.css.map",
-    "main.329c18fa.js.map": "/static/js/main.329c18fa.js.map"
+    "main.3ebef181.css.map": "/static/css/main.3ebef181.css.map",
+    "main.927d3995.js.map": "/static/js/main.927d3995.js.map"
   },
   "entrypoints": [
-    "static/css/main.36dc316a.css",
-    "static/js/main.329c18fa.js"
+    "static/css/main.3ebef181.css",
+    "static/js/main.927d3995.js"
   ]
 }

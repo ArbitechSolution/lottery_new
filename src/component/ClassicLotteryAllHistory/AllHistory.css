@@ -182,3 +182,13 @@ main {
   height: 37px;
   /* width: 130px; */
 }
+.spanCol {
+  display: flex;
+  flex-direction: column;
+}
+.spanAmount {
+  font-size: 13px;
+}
+.spanAmount2 {
+  font-size: 10px;
+}

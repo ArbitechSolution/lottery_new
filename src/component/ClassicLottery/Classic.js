@@ -30,8 +30,9 @@ function ClassicLotteryComponent() {
                   <div className="col-lg-5 mt-2 mb-2 divInputText">
                     <span className="spanText">Prize Pool</span>
                   </div>
-                  <div className="col-lg-5 mt-2 mb-2 divInputText">
-                    <input type="number" className="inputClassic" />
+                  <div className="col-lg-5 mt-2 mb-2 divInputText inputClassic spanCol">
+                    <span className="spanAmount">000.00</span>
+                    <span className="spanAmount2">~$ 000.00</span>
                   </div>
                 </div>
               </div>

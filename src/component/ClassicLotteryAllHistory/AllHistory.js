@@ -77,6 +77,49 @@ function AllHistory() {
       console.log("error while getting Round");
     }
   };
+
+  const firstLotteryId = async () => {
+    try {
+      if (account == "No Wallet") {
+        console.log("No Wallet");
+      } else if (account == "Wrong Network") {
+        console.log("Wrong Network");
+      } else if (account == "Connect Wallet") {
+        console.log("Please Connect Wallet First!");
+      } else {
+        const web3 = window.web3;
+        const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+        const id = await lotteryContract.methods.viewCurrentLotteryId().call();
+        if (id > 1) {
+          setInputField(1);
+          handleLotery(1);
+        }
+      }
+    } catch (error) {
+      console.log("error while getting Round");
+    }
+  };
+  const lastLotteryId = async () => {
+    try {
+      if (account == "No Wallet") {
+        console.log("No Wallet");
+      } else if (account == "Wrong Network") {
+        console.log("Wrong Network");
+      } else if (account == "Connect Wallet") {
+        console.log("Please Connect Wallet First!");
+      } else {
+        const web3 = window.web3;
+        const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+        const id = await lotteryContract.methods.viewCurrentLotteryId().call();
+        if (id > 0) {
+          setInputField(id - 1);
+          handleLotery(id - 1);
+        }
+      }
+    } catch (error) {
+      console.log("error while getting Round");
+    }
+  };
   useEffect(() => {
     GetRound();
   }, [account]);
@@ -132,8 +175,22 @@ function AllHistory() {
                     >
                       &gt;
                     </span>
-                    <span className="lessAndGreaterThen ms-2">First</span>
-                    <span className="lessAndGreaterThen ms-2 me-1">Last</span>
+                    <span
+                      className="lessAndGreaterThen ms-2"
+                      onClick={() => {
+                        firstLotteryId();
+                      }}
+                    >
+                      First
+                    </span>
+                    <span
+                      className="lessAndGreaterThen ms-2 me-1"
+                      onClick={() => {
+                        lastLotteryId();
+                      }}
+                    >
+                      Last
+                    </span>
                   </div>
                 </div>
               </div>

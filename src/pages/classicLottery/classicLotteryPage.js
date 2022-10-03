@@ -10,13 +10,13 @@ function ClassicLottery() {
   return (
     <div className="container lotteryPage ">
       <div className="row d-flex justify-content-center mt-2 mb-2">
-        <div className="col-lg-4 col-12">
+        <div className="col-lg-3 col-12">
           <ClassicLotteryComponent />
         </div>
         <div className="col-lg-4 col-12">
           <HowToPlayLottery />
         </div>
-        <div className="col-lg-4 col-12">
+        <div className="col-lg-3 col-12">
           <AllHistory />
         </div>
       </div>

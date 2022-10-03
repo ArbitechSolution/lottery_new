@@ -1,15 +1,73 @@
 import React, { useState, useEffect } from "react";
 import "./Classic.css";
 import BabyLogo from "../../Assets/Babylonia_Logo.png";
+import { useSelector } from "react-redux";
+import { BabyAbI, BabyAddress } from "../../component/Utils/baby";
+import { toast } from "react-toastify";
 function ClassicLotteryComponent() {
-  const [winnerNumber, setWinnerNumber] = useState(0);
+  const [lastWinnerNumber, setLastWinnerNumber] = useState(0);
+  const [inputField, setInputField] = useState(0);
+  let account = useSelector((state) => state.connect?.connection);
   const [hours, setHours] = useState("00");
   const [second, setSecond] = useState("00");
   const handleTimeFornextDraw = () => {
     setHours("00");
     setSecond("00");
   };
-  const handlePreviousLotteryWinner = () => {};
+
+  function reversedNum(num) {
+    return (
+      parseFloat(num.toString().split("").reverse().join("")) * Math.sign(num)
+    );
+  }
+  const handleLotery = async (id) => {
+    try {
+      if (account == "No Wallet") {
+        toast.info("No Wallet");
+      } else if (account == "Wrong Network") {
+        toast.info("Wrong Network");
+      } else if (account == "Connect Wallet") {
+        toast.info("Please Connect Wallet First!");
+      } else {
+        const web3 = window.web3;
+        const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+        let finalLotteryNumber = await lotteryContract.methods
+          .viewLottery(id)
+          .call();
+        let finalNumber = finalLotteryNumber.finalNumber;
+        finalNumber = finalNumber % 1000000;
+        let num = reversedNum(finalNumber);
+        if (num.toString().length == 5) {
+          num = "0" + num.toString();
+          console.log("num in classic ", num);
+        }
+        setLastWinnerNumber(num);
+      }
+    } catch (error) {
+      console.log("error while setting lottery");
+    }
+  };
+  const GetRound = async () => {
+    try {
+      if (account == "No Wallet") {
+        console.log("No Wallet");
+      } else if (account == "Wrong Network") {
+        console.log("Wrong Network");
+      } else if (account == "Connect Wallet") {
+        console.log("Please Connect Wallet First!");
+      } else {
+        const web3 = window.web3;
+        const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+        const id = await lotteryContract.methods.viewCurrentLotteryId().call();
+        handleLotery(id - 1);
+      }
+    } catch (error) {
+      console.log("error while getting Round");
+    }
+  };
+  useEffect(() => {
+    GetRound();
+  }, [account]);
 
   return (
     <div className="container ">
@@ -41,7 +99,7 @@ function ClassicLotteryComponent() {
                   <div className="col-lg-5 mt-2 mb-2 divInputText">
                     <span className="spanText">Next Draw</span>
                   </div>
-                  <div className="col-lg-5 mt-2 mb-2 divInputText">
+                  <div className=" col-6 mt-2 mb-2 divInputText">
                     <span className="inputClassic spanWinner">
                       {hours}h &nbsp; {second}m
                     </span>
@@ -55,7 +113,7 @@ function ClassicLotteryComponent() {
                   </div>
                   <div className="col-lg-5 mt-2 mb-2 divInputText">
                     <span className="inputClassic spanWinner">
-                      {winnerNumber ? winnerNumber : "0000"}
+                      {lastWinnerNumber ? lastWinnerNumber : "0000"}
                     </span>
                   </div>
                 </div>

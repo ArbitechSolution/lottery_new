@@ -178,3 +178,12 @@ body {
 .css-1ontqvh {
   padding-top: 0px !important;
 }
+@media (max-width: 480px) {
+  .css-1ontqvh {
+    display: none !important;
+  }
+}
+
+/* .css-1ontqvh {
+  display: none !important;
+} */

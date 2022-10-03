@@ -177,11 +177,11 @@ main {
 }
 .lessAndGreaterThen {
   cursor: pointer;
+  font-size: 13px;
 }
-.spanWinner {
+/* .spanWinner {
   height: 37px;
-  /* width: 130px; */
-}
+} */
 .spanCol {
   display: flex;
   flex-direction: column;

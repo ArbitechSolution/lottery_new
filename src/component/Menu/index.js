@@ -30,7 +30,7 @@ import Roadmap from "../../Assets/menu/Icon_roadmap_01.svg";
 import Tokenomics from "../../Assets/menu/Icon_tockenomics_02.svg";
 
 import { Icon } from "@mui/material/Icon";
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,

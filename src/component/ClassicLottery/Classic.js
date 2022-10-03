@@ -39,7 +39,6 @@ function ClassicLotteryComponent() {
         let num = reversedNum(finalNumber);
         if (num.toString().length == 5) {
           num = "0" + num.toString();
-          console.log("num in classic ", num);
         }
         setLastWinnerNumber(num);
       }

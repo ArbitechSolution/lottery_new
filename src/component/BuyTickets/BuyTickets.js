@@ -74,7 +74,6 @@ function BuyTickets() {
         let balance = await tokenContract.methods.balanceOf(account).call();
         balance = web3.utils.fromWei(balance);
         balance = parseFloat(balance).toFixed(4);
-        console.log("token balance", balance);
         setBabyBalance(balance);
       }
     } catch (error) {

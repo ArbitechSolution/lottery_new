@@ -51,7 +51,6 @@ function AllHistory() {
         let num = reversedNum(finalNumber);
         if (num.toString().length == 5) {
           num = "0" + num.toString();
-          console.log("num after concat", num);
         }
         setWinnerNumber(num);
       }

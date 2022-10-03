@@ -54,15 +54,12 @@ function BuyPointOne() {
     setLotteryCard(true);
   };
   const handleBuyInstantly = () => {
-    console.log("into");
     setLotteryCard(true);
   };
   const handleConfirm = () => {
-    console.log("handle with care");
     getBuyTicket();
   };
   const handleChangeInput = (e) => {
-    console.log(e.target.value);
     if (e.target.value >= 0 && e.target.value <= 100) {
       setInputValue(e.target.value);
       getCost();
@@ -107,12 +104,8 @@ function BuyPointOne() {
         const web3 = window.web3;
         const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
         const id = await lotteryContract.methods.viewCurrentLotteryId().call();
-        console.log(id);
         const values = await lotteryContract.methods.viewLottery(id).call();
-        console.log(values, "values of lottery construct");
-        console.log(values.priceTicketInBABY, "values of babyPrice");
-        console.log(values.discountDivisor, "values of discount");
-        console.log(valueInput, "values of valueInput");
+     
 
         if (valueInput == 0) {
           setBulkDiscount(0);
@@ -161,39 +154,23 @@ function BuyPointOne() {
     let arrayOf = [];
     for (let i = 1; i <= valueInput; i++) {
       let num = random();
-      console.log("num", num);
       arrayOf = [...arrayOf, num];
     }
     // setApproved(true);
     setEidtLotteryNumber(arrayOf);
     try {
       if (valueInput > 0) {
-        console.log(
-          "into Enable valueInput",
-          babyBalance,
-          parseFloat(actualCost),
-          parseFloat(babyBalance)
-        );
+       
         if (parseFloat(actualCost) <= parseFloat(babyBalance)) {
-          console.log(
-            "actualCost <= babyBalance after check",
-            actualCost,
-            babyBalance
-          );
+        
           const web3 = window.web3;
           const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
-          console.log(
-            "token tokenContract",
-            tokenContract.methods,
-            BabyAddress,
-            account
-          );
+       
           const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
 
           const id = await lotteryContract.methods
             .viewCurrentLotteryId()
             .call();
-          console.log(id);
           const values = await lotteryContract.methods.viewLottery(id).call();
           let acutalCostForBuy = await lotteryContract.methods
             .calculateTotalPriceForBulkTickets(
@@ -202,7 +179,6 @@ function BuyPointOne() {
               valueInput
             )
             .call();
-          console.log("acutalCostForBuy", acutalCostForBuy);
           // let amount = web3.utils.toWei(acutalCostForBuy);
           await tokenContract.methods
             .approve(BabyAddress, acutalCostForBuy)
@@ -269,17 +245,11 @@ function BuyPointOne() {
   };
 
   const handleLotteryNumberEdit = (e, item) => {
-    console.log("editable handleLotteryNumberEdit", eidtLotteryNumber);
-    // console.log("value of number ", e.target.value);
 
     if (e.target.value <= 999999) {
       for (let i = 0; i <= eidtLotteryNumber.length; i++) {
-        console.log("eidtLotteryNumber[i]", eidtLotteryNumber[i], item);
-        console.log("eidtLotteryNumber[i]", e.target.value);
         if (eidtLotteryNumber[i] == item) {
           eidtLotteryNumber[i] = e.target.value;
-          console.log("in looop [i]", eidtLotteryNumber[i]);
-          console.log("in looop [i]", e.target.value);
         }
       }
       setEidtLotteryNumber(e.target.value);

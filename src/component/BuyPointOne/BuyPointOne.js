@@ -50,8 +50,8 @@ function BuyPointOne() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let account = useSelector((state) => state.connect?.connection);
   const handleConnect = async () => {
-    dispatch(connectionAction());
     setLotteryCard(true);
+    dispatch(connectionAction());
   };
   const handleBuyInstantly = () => {
     setLotteryCard(true);
@@ -105,7 +105,6 @@ function BuyPointOne() {
         const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
         const id = await lotteryContract.methods.viewCurrentLotteryId().call();
         const values = await lotteryContract.methods.viewLottery(id).call();
-     
 
         if (valueInput == 0) {
           setBulkDiscount(0);
@@ -160,12 +159,10 @@ function BuyPointOne() {
     setEidtLotteryNumber(arrayOf);
     try {
       if (valueInput > 0) {
-       
         if (parseFloat(actualCost) <= parseFloat(babyBalance)) {
-        
           const web3 = window.web3;
           const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
-       
+
           const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
 
           const id = await lotteryContract.methods
@@ -245,7 +242,6 @@ function BuyPointOne() {
   };
 
   const handleLotteryNumberEdit = (e, item) => {
-
     if (e.target.value <= 999999) {
       for (let i = 0; i <= eidtLotteryNumber.length; i++) {
         if (eidtLotteryNumber[i] == item) {
@@ -307,7 +303,7 @@ function BuyPointOne() {
                       </div>
                       <div className="col-12 d-flex justify-content-end">
                         <span className="buyPointOneSpan">
-                          ~{costValue} &nbsp;BABY
+                          {costValue} &nbsp;BABY
                         </span>
                       </div>
                     </div>
@@ -355,7 +351,7 @@ function BuyPointOne() {
                   <div className="col-11 d-flex justify-content-between">
                     <span className="buyPointOneSpan">You pay</span>
                     <span className="buyPointOneSpan ">
-                      ~{actualCost} &nbsp; BABY
+                      {actualCost} &nbsp; BABY
                     </span>
                   </div>
                 </div>

@@ -34,8 +34,7 @@ function Navbars() {
             <Nav.Link href="/classic" className="lotterysize">
               <button
                 className="btn btn-connect-Wallet"
-                // onClick={() => handleConnect()}
-              >
+y              >
                 CLASSIC LOTTERY
               </button>
             </Nav.Link>

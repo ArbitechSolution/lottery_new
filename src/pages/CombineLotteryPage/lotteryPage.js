@@ -9,9 +9,9 @@ function LotteryPage() {
         <div className="col-lg-5">
           <BuyTickets />
         </div>
-        <div className="col-lg-5">
+        {/* <div className="col-lg-5">
           <BuyPointOne />
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -46,6 +46,10 @@ function AllHistory() {
         let finalLotteryNumber = await lotteryContract.methods
           .viewLottery(id)
           .call();
+        // console.log(
+        //   "finalLotteryNumber",
+        //   finalLotteryNumber.amountCollectedInBABY
+        // );
         let finalNumber = finalLotteryNumber.finalNumber;
         finalNumber = finalNumber % 1000000;
         let num = reversedNum(finalNumber);
@@ -70,8 +74,14 @@ function AllHistory() {
         const web3 = window.web3;
         const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
         const id = await lotteryContract.methods.viewCurrentLotteryId().call();
-        setInputField(id - 1);
-        handleLotery(id - 1);
+        const values = await lotteryContract.methods.viewLottery(id).call();
+        if (values.status == 1) {
+          setInputField(id - 1);
+          handleLotery(id - 1);
+        } else {
+          setInputField(id);
+          handleLotery(id);
+        }
       }
     } catch (error) {
       console.log("error while getting Round");
@@ -90,9 +100,14 @@ function AllHistory() {
         const web3 = window.web3;
         const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
         const id = await lotteryContract.methods.viewCurrentLotteryId().call();
+        const values = await lotteryContract.methods.viewLottery(id).call();
+
         if (id > 1) {
           setInputField(1);
           handleLotery(1);
+        } else {
+          handleLotery(0);
+          setInputField(0);
         }
       }
     } catch (error) {
@@ -111,9 +126,13 @@ function AllHistory() {
         const web3 = window.web3;
         const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
         const id = await lotteryContract.methods.viewCurrentLotteryId().call();
-        if (id > 0) {
+        const values = await lotteryContract.methods.viewLottery(id).call();
+        if (values.status == 1) {
           setInputField(id - 1);
           handleLotery(id - 1);
+        } else {
+          setInputField(id);
+          handleLotery(id);
         }
       }
     } catch (error) {

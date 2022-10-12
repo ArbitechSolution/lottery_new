@@ -53,9 +53,23 @@ function AllHistory() {
         let finalNumber = finalLotteryNumber.finalNumber;
         finalNumber = finalNumber % 1000000;
         let num = reversedNum(finalNumber);
-        if (num.toString().length == 5) {
-          num = "0" + num.toString();
+        // console.log("num", finalLotteryNumber);
+        if (num.toString().length == 6) {
+          num = num.toString();
+        } else if (num.toString().length == 5) {
+          num = num.toString() + "0";
+        } else if (num.toString().length == 4) {
+          num = num.toString() + "00";
+        } else if (num.toString().length == 3) {
+          num = num.toString() + "000";
+        } else if (num.toString().length == 2) {
+          num = num.toString() + "0000";
+        } else if (num.toString().length == 1) {
+          num = num.toString() + "00000";
+        } else {
+          num = num.toString() + "000000";
         }
+
         setWinnerNumber(num);
       }
     } catch (error) {
@@ -220,7 +234,7 @@ function AllHistory() {
                   </div>
                   <div className="col-6 mt-2 mb-2 divInputText">
                     <span className="inputClassic spanWinner">
-                      {winnerNumber ? winnerNumber : "0000"}
+                      {winnerNumber ? winnerNumber : "000000"}
                     </span>
                   </div>
                 </div>

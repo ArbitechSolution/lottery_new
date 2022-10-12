@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import toast, { Toaster } from "react-hot-toast";
 import BabyloniaLogo from "../../Assets/Babylonia_Logo_1.png";
 import { GrConnect } from "react-icons/gr";
 import { useSelector, useDispatch } from "react-redux";
@@ -25,16 +26,16 @@ function Navbars() {
           <img src={BabyloniaLogo} className="babyImage" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+        {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse
           id="responsive-navbar-nav"
           className=" d-flex justify-content-end"
-        >
+        > */}
           <Nav className="text-center nav-buttons">
             {/* <Nav.Link href="/classic" className="lotterysize"> */}
             <Nav.Link href="/classic" className="lotterysize">
-              <button
-                className="btn btn-connect-Wallet"
-y              >
+              <button className="btn btn-connect-Wallet" y>
                 CLASSIC LOTTERY
               </button>
             </Nav.Link>
@@ -46,10 +47,15 @@ y              >
                 BABYLON JACKPOT
               </button>
             </Nav.Link>
-            <Nav.Link href="" className="lotterysize">
+            <Nav.Link  className="lotterysize">
               <button
                 className="btn btn-connect-Wallet"
-                // onClick={() => handleConnect()}
+                onClick={() => toast(
+                  "Coming Soon ...",
+                  {
+                    duration: 4000,
+                  }
+                )}
               >
                 SLOW ROULLETE
               </button>
@@ -60,7 +66,7 @@ y              >
           </Nav> */}
         </Navbar.Collapse>
         <Navbar.Collapse
-          id="responsive-navbar-nav"
+          
           className=" d-flex justify-content-end"
         >
           <Nav>
@@ -87,6 +93,18 @@ y              >
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <Toaster position="top-right" reverseOrder={false} 
+      toastOptions={{
+        className: '',
+        style: {
+          width: '250px',
+          textAlign: "left",
+          justifyContent: 'flex-start',
+          fontFamily: 'Ropa Sans',
+          fontSize: "22px"
+        },
+      }}
+    />
     </div>
   );
 }

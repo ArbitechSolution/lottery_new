@@ -10,9 +10,50 @@ function NextDraw() {
         </div>
       </div>
       <div className="row d-flex justify-content-center mt-2 mb-2">
-        <div className="col-lg-5 buyTicketBox">
+        <div className="col-lg-8 buyTicketBox">
           <div className="buyTicketBoxMini">
-            <div className="row d-flex justify-content-center mt-3">
+            <p className="nextdraw-p ps-3 pt-3">
+              Match the winning number in the same order to share prizes.
+              Current prizes up for grabs:
+            </p>
+            <div className="row">
+              <div className="col-lg-3 text-start mb-3 mt-3">
+                <h5 className="Match-p ps-3">Match first 1</h5>
+                <span className="ps-3 CAKE-span">502 CAKE</span><br/>
+                <span className="ps-3 CAKE-span1">~$2,275</span>
+              </div>
+              <div className="col-lg-3 text-start mb-3 mt-3">
+                <h5 className="Match-p ps-3">Match first 2</h5>
+                <span className="ps-3 CAKE-span">754 CAKE</span><br/>
+                <span className="ps-3 CAKE-span1">~$3,417</span>
+              </div>
+              <div className="col-lg-3 text-start mb-3 mt-3">
+                <h5 className="Match-p ps-3">Match first 3</h5>
+                <span className="ps-3 CAKE-span">1,256 CAKE</span><br/>
+                <span className="ps-3 CAKE-span1">~$5,694</span>
+              </div>
+              <div className="col-lg-3 text-start mb-3 mt-3">
+                <h5 className="Match-p ps-3">Match first 4</h5>
+                <span className="ps-3 CAKE-span">2,512 CAKE</span><br/>
+                <span className="ps-3 CAKE-span1">~$2,275</span>
+              </div>
+              <div className="col-lg-3 text-start mb-3 mt-3">
+                <h5 className="Match-p ps-3">Match first 5</h5>
+                <span className="ps-3 CAKE-span">10,047 CAKE</span><br/>
+                <span className="ps-3 CAKE-span1">~$2,275</span>
+              </div>
+              <div className="col-lg-3 text-start mb-3 mt-3">
+                <h5 className="Match-p ps-3">Match first 6</h5>
+                <span className="ps-3 CAKE-span">5,024 CAKE</span><br/>
+                <span className="ps-3 CAKE-span1">~$22,774</span>
+              </div>
+              <div className="col-lg-3 text-start mb-3 mt-3">
+                <h5 className="Match-p ps-3">Burn</h5>
+                <span className="ps-3 CAKE-span">5,024 CAKE</span><br/>
+                <span className="ps-3 CAKE-span1">~$22,770</span>
+              </div>
+            </div>
+            {/* <div className="row d-flex justify-content-center mt-3">
               <div className="col-11 d-flex justify-content-between align-items-center">
                 <span className="nextspan">Next Draw</span>
                 <span className="nextspanone">
@@ -48,7 +89,7 @@ function NextDraw() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

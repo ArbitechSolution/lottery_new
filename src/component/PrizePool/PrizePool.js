@@ -3,7 +3,7 @@ import "./PrizePool.css";
 function PrizePool() {
   return (
     <div className="container ">
-      <div className="row d-flex justify-content-center mt-4 mb-4">
+      <div className="row d-flex justify-content-center mt-4 mb-5">
         <div className="col-lg-12 buyTicketBox ">
           <div className="buyTicketBoxMini pt-3 pb-3">
             <h3 className="buyTicketSpan  mt-2" style={{ paddingLeft: "20px" }}>

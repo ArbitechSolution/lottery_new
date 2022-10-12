@@ -10,9 +10,19 @@ function ClassicLotteryComponent() {
   let account = useSelector((state) => state.connect?.connection);
   const [hours, setHours] = useState("00");
   const [second, setSecond] = useState("00");
-  const handleTimeFornextDraw = () => {
-    setHours("00");
-    setSecond("00");
+  const handleTimeFornextDraw = async() => {
+    const web3 = window.web3;
+        const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
+        const id = await lotteryContract.methods.viewCurrentLotteryId().call();
+        let finalLotteryNumber = await lotteryContract.methods.getTime(id).call();
+         let hours = finalLotteryNumber/60;
+         let rHours = Math.floor(hours)
+         let minutes = (hours - rHours)*60
+         console.log("minutes", minutes);
+         let rMinutes = Math.round(minutes)
+        //  rMinutes = rMinutes + 1
+    setHours(rHours);
+    setSecond(rMinutes);
   };
 
   function reversedNum(num) {
@@ -67,7 +77,13 @@ function ClassicLotteryComponent() {
   useEffect(() => {
     GetRound();
   }, [account]);
+useEffect(()=>{
+  setInterval(()=>{
+    handleTimeFornextDraw()
+  },60000)
+  handleTimeFornextDraw()
 
+})
   return (
     <div className="container ">
       <div className="row d-flex justify-content-center mt-4 mb-4">
@@ -112,7 +128,7 @@ function ClassicLotteryComponent() {
                   </div>
                   <div className="col-lg-5 mt-2 mb-2 divInputText">
                     <span className="inputClassic spanWinner">
-                      {lastWinnerNumber ? lastWinnerNumber : "0000"}
+                      {lastWinnerNumber ? lastWinnerNumber : "000000"}
                     </span>
                   </div>
                 </div>

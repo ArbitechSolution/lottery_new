@@ -1,12 +1,8 @@
-export const BabyAddress = "0xAB805ed032406a1c3Bef754C673575780044F724";
+export const BabyAddress = "0x948FeFF3F12A08f0464b950156214e6544C756B1";
 export const BabyAbI = [
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "_BABYTokenAddress",
-        type: "address",
-      },
+      { internalType: "address", name: "_BABYTokenAddress", type: "address" },
       {
         internalType: "address",
         name: "_randomGeneratorAddress",
@@ -34,109 +30,6 @@ export const BabyAbI = [
     ],
     name: "AdminTokenRecovery",
     type: "event",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_lotteryId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint32[]",
-        name: "_ticketNumbers",
-        type: "uint32[]",
-      },
-    ],
-    name: "buyTickets",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_randomGeneratorAddress",
-        type: "address",
-      },
-    ],
-    name: "changeRandomGenerator",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_lotteryId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256[]",
-        name: "_ticketIds",
-        type: "uint256[]",
-      },
-      {
-        internalType: "uint32[]",
-        name: "_brackets",
-        type: "uint32[]",
-      },
-    ],
-    name: "claimTickets",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_lotteryId",
-        type: "uint256",
-      },
-    ],
-    name: "closeLottery",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_lotteryId",
-        type: "uint256",
-      },
-      {
-        internalType: "bool",
-        name: "_autoInjection",
-        type: "bool",
-      },
-    ],
-    name: "drawFinalNumberAndMakeLotteryClaimable",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_lotteryId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
-    ],
-    name: "injectFunds",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
   },
   {
     anonymous: false,
@@ -302,118 +195,6 @@ export const BabyAbI = [
     type: "event",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_tokenAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_tokenAmount",
-        type: "uint256",
-      },
-    ],
-    name: "recoverWrongTokens",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_maxNumberTicketsPerBuy",
-        type: "uint256",
-      },
-    ],
-    name: "setMaxNumberTicketsPerBuy",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_minPriceTicketInBABY",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_maxPriceTicketInBABY",
-        type: "uint256",
-      },
-    ],
-    name: "setMinAndMaxTicketPriceInBABY",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_operatorAddress",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_treasuryAddress",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_injectorAddress",
-        type: "address",
-      },
-    ],
-    name: "setOperatorAndTreasuryAndInjectorAddresses",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_endTime",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_priceTicketInBABY",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_discountDivisor",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256[6]",
-        name: "_rewardsBreakdown",
-        type: "uint256[6]",
-      },
-      {
-        internalType: "uint256",
-        name: "_treasuryFee",
-        type: "uint256",
-      },
-    ],
-    name: "startLottery",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     anonymous: false,
     inputs: [
       {
@@ -470,177 +251,148 @@ export const BabyAbI = [
     type: "event",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
-    ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_lotteryId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_ticketId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint32",
-        name: "_bracket",
-        type: "uint32",
-      },
-    ],
-    name: "_calculateRewardsForTicketId",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [],
     name: "BABYToken",
-    outputs: [
-      {
-        internalType: "contract IERC20",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_discountDivisor",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_priceTicket",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_numberTickets",
-        type: "uint256",
-      },
-    ],
-    name: "calculateTotalPriceForBulkTickets",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "pure",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "currentLotteryId",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "currentTicketId",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "MAX_LENGTH_LOTTERY",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "MAX_TREASURY_FEE",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "MIN_LENGTH_LOTTERY",
-    outputs: [
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "_lotteryId", type: "uint256" },
+      { internalType: "uint256", name: "_ticketId", type: "uint256" },
+      { internalType: "uint32", name: "_bracket", type: "uint32" },
+    ],
+    name: "_calculateRewardsForTicketId",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "_lotteryId", type: "uint256" },
+      { internalType: "uint32[]", name: "_ticketNumbers", type: "uint32[]" },
+    ],
+    name: "buyTickets",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "_discountDivisor", type: "uint256" },
+      { internalType: "uint256", name: "_priceTicket", type: "uint256" },
+      { internalType: "uint256", name: "_numberTickets", type: "uint256" },
+    ],
+    name: "calculateTotalPriceForBulkTickets",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "pure",
+    type: "function",
+  },
+  {
+    inputs: [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
+        internalType: "address",
+        name: "_randomGeneratorAddress",
+        type: "address",
       },
     ],
+    name: "changeRandomGenerator",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "_lotteryId", type: "uint256" },
+      { internalType: "uint256[]", name: "_ticketIds", type: "uint256[]" },
+      { internalType: "uint32[]", name: "_brackets", type: "uint32[]" },
+    ],
+    name: "claimTickets",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_lotteryId", type: "uint256" }],
+    name: "closeLottery",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "currentLotteryId",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
-    name: "owner",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
+    name: "currentTicketId",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "_lotteryId", type: "uint256" },
+      { internalType: "bool", name: "_autoInjection", type: "bool" },
     ],
+    name: "drawFinalNumberAndMakeLotteryClaimable",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "lotteryId_", type: "uint256" }],
+    name: "getTime",
+    outputs: [{ internalType: "uint256", name: "_time", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "_lotteryId", type: "uint256" },
+      { internalType: "uint256", name: "_amount", type: "uint256" },
+    ],
+    name: "injectFunds",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "pendingInjectionNextLottery",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
@@ -658,26 +410,97 @@ export const BabyAbI = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "viewCurrentLotteryId",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+    inputs: [
+      { internalType: "address", name: "_tokenAddress", type: "address" },
+      { internalType: "uint256", name: "_tokenAmount", type: "uint256" },
     ],
-    stateMutability: "view",
+    name: "recoverWrongTokens",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
     inputs: [
       {
         internalType: "uint256",
-        name: "_lotteryId",
+        name: "_maxNumberTicketsPerBuy",
         type: "uint256",
       },
     ],
+    name: "setMaxNumberTicketsPerBuy",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_minPriceTicketInBABY",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_maxPriceTicketInBABY",
+        type: "uint256",
+      },
+    ],
+    name: "setMinAndMaxTicketPriceInBABY",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "_operatorAddress", type: "address" },
+      { internalType: "address", name: "_treasuryAddress", type: "address" },
+      { internalType: "address", name: "_injectorAddress", type: "address" },
+    ],
+    name: "setOperatorAndTreasuryAndInjectorAddresses",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "_endTime", type: "uint256" },
+      { internalType: "uint256", name: "_priceTicketInBABY", type: "uint256" },
+      { internalType: "uint256", name: "_discountDivisor", type: "uint256" },
+      {
+        internalType: "uint256[6]",
+        name: "_rewardsBreakdown",
+        type: "uint256[6]",
+      },
+      { internalType: "uint256", name: "_treasuryFee", type: "uint256" },
+    ],
+    name: "startLottery",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "viewCurrentLotteryId",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_lotteryId", type: "uint256" }],
     name: "viewLottery",
     outputs: [
       {
@@ -687,36 +510,20 @@ export const BabyAbI = [
             name: "status",
             type: "uint8",
           },
-          {
-            internalType: "uint256",
-            name: "startTime",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "endTime",
-            type: "uint256",
-          },
+          { internalType: "uint256", name: "startTime", type: "uint256" },
+          { internalType: "uint256", name: "endTime", type: "uint256" },
           {
             internalType: "uint256",
             name: "priceTicketInBABY",
             type: "uint256",
           },
-          {
-            internalType: "uint256",
-            name: "discountDivisor",
-            type: "uint256",
-          },
+          { internalType: "uint256", name: "discountDivisor", type: "uint256" },
           {
             internalType: "uint256[6]",
             name: "rewardsBreakdown",
             type: "uint256[6]",
           },
-          {
-            internalType: "uint256",
-            name: "treasuryFee",
-            type: "uint256",
-          },
+          { internalType: "uint256", name: "treasuryFee", type: "uint256" },
           {
             internalType: "uint256[6]",
             name: "BABYPerBracket",
@@ -727,11 +534,7 @@ export const BabyAbI = [
             name: "countWinnersPerBracket",
             type: "uint256[6]",
           },
-          {
-            internalType: "uint256",
-            name: "firstTicketId",
-            type: "uint256",
-          },
+          { internalType: "uint256", name: "firstTicketId", type: "uint256" },
           {
             internalType: "uint256",
             name: "firstTicketIdNextLottery",
@@ -742,11 +545,7 @@ export const BabyAbI = [
             name: "amountCollectedInBABY",
             type: "uint256",
           },
-          {
-            internalType: "uint32",
-            name: "finalNumber",
-            type: "uint32",
-          },
+          { internalType: "uint32", name: "finalNumber", type: "uint32" },
         ],
         internalType: "struct BabyloniaLottery.Lottery",
         name: "",
@@ -758,102 +557,40 @@ export const BabyAbI = [
   },
   {
     inputs: [
-      {
-        internalType: "uint256[]",
-        name: "_ticketIds",
-        type: "uint256[]",
-      },
+      { internalType: "uint256[]", name: "_ticketIds", type: "uint256[]" },
     ],
     name: "viewNumbersAndStatusesForTicketIds",
     outputs: [
-      {
-        internalType: "uint32[]",
-        name: "",
-        type: "uint32[]",
-      },
-      {
-        internalType: "bool[]",
-        name: "",
-        type: "bool[]",
-      },
+      { internalType: "uint32[]", name: "", type: "uint32[]" },
+      { internalType: "bool[]", name: "", type: "bool[]" },
     ],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "_lotteryId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_ticketId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint32",
-        name: "_bracket",
-        type: "uint32",
-      },
+      { internalType: "uint256", name: "_lotteryId", type: "uint256" },
+      { internalType: "uint256", name: "_ticketId", type: "uint256" },
+      { internalType: "uint32", name: "_bracket", type: "uint32" },
     ],
     name: "viewRewardsForTicketId",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "_user",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_lotteryId",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_cursor",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_size",
-        type: "uint256",
-      },
+      { internalType: "address", name: "_user", type: "address" },
+      { internalType: "uint256", name: "_lotteryId", type: "uint256" },
+      { internalType: "uint256", name: "_cursor", type: "uint256" },
+      { internalType: "uint256", name: "_size", type: "uint256" },
     ],
     name: "viewUserInfoForLotteryId",
     outputs: [
-      {
-        internalType: "uint256[]",
-        name: "",
-        type: "uint256[]",
-      },
-      {
-        internalType: "uint32[]",
-        name: "",
-        type: "uint32[]",
-      },
-      {
-        internalType: "bool[]",
-        name: "",
-        type: "bool[]",
-      },
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+      { internalType: "uint256[]", name: "", type: "uint256[]" },
+      { internalType: "uint32[]", name: "", type: "uint32[]" },
+      { internalType: "bool[]", name: "", type: "bool[]" },
+      { internalType: "uint256", name: "", type: "uint256" },
     ],
     stateMutability: "view",
     type: "function",

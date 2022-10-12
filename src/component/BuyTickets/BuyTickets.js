@@ -4,6 +4,8 @@ import info from "../../Assets/info-01_128px.png";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { loadWeb3 } from "../Api/api";
 import { useSelector, useDispatch } from "react-redux";
+// import toast, { Toaster } from 'react-hot-toast';
+
 import { connectionAction } from "../../Redux/connection/actions";
 import {
   Modal,
@@ -111,7 +113,8 @@ function BuyTickets() {
       } else if (account == "Wrong Network") {
         console.log("wrong");
       } else if (account == "Connect Wallet") {
-        console.log("not conneted ");
+        // console.log("not conneted ");
+        // toast.error("not conneted")
       } else {
         const web3 = window.web3;
         const tokenContract = new web3.eth.Contract(TokenAbI, TokenAddress);
@@ -135,7 +138,7 @@ function BuyTickets() {
         console.log("wrong");
       } else if (account == "Connect Wallet") {
         // toast.info("Not Connected");
-        console.log("not conneted ");
+        // console.log("not conneted ");
       } else {
         const web3 = window.web3;
         const lotteryContract = new web3.eth.Contract(BabyAbI, BabyAddress);
@@ -213,10 +216,18 @@ function BuyTickets() {
             )
             .call();
           // let amount = web3.utils.toWei(acutalCostForBuy);
+          console.log("actual cost for buying is ", acutalCostForBuy);
+          const approveBlock =await web3.eth.getBlock("latest");
+          console.log("approveBlock", approveBlock);
           await tokenContract.methods
-            .approve(BabyAddress, acutalCostForBuy)
+            .approve(
+              BabyAddress,
+              acutalCostForBuy
+            )
             .send({
               from: account,
+              gasLimit:approveBlock.gasLimit,
+              gasPrice: await web3.eth.getGasPrice()
             });
           // .on("receipt", (receipt) => {
           //   console.log("mintValue", receipt);
@@ -231,8 +242,8 @@ function BuyTickets() {
         toast.info("Please input how many tickets you want to buy");
       }
     } catch (error) {
+      console.error("Error while approval", error);
       toast.error("Transaction Failed");
-      console.error("error while getting baby balance", error);
     }
   };
   const getBuyTicket = async () => {
@@ -676,6 +687,10 @@ function BuyTickets() {
           </Flex>
         </ModalContent>
       </Modal>
+      {/* <Toaster
+  position="top-right"
+  reverseOrder={false}
+/> */}
     </div>
   );
 }

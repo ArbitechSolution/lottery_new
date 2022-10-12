@@ -18,3 +18,36 @@
   font-size: 16px;
   font-weight: 500;
 }
+.nextdraw-p{
+  font-family: 'Ropa Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 15px;
+color: #000000;
+text-align: left;
+}
+.Match-p{
+  color: #7645D9;
+  font-family: 'Ropa Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 22px;
+}
+.CAKE-span{
+  font-family: 'Ropa Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 25px;
+line-height: 15px;
+color: #000000;
+text-align: left;
+}
+.CAKE-span1{
+  font-family: 'Ropa Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 15px;
+color: #000000;
+}
